@@ -1,0 +1,10 @@
+# Wk0 preface
+
+This Wk0 section is intended as a "miscelaneous" section to this lab book which contains:
+
+* General testing - figuring out how to use onenote features to write this labbook
+* Bibliography
+* General pre-lab prep
+* General lab info
+
+As such it’s a mix of more administrative information and pre-lab preparation.

@@ -1,0 +1,9 @@
+# testPage blah balh bal
+
+![testImage](no.png "Title=testImage"){fig-align="left"}
+
+%```{python}
+%import os
+%print("hello world")
+%print(os.getcwd())
+%```

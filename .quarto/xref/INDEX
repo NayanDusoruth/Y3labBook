@@ -1,0 +1,83 @@
+{
+  "testQuarto.qmd": {
+    "testQuarto.html": "756cf449"
+  },
+  "about.qmd": {
+    "about.html": "a3826382",
+    "about.tex": "4dd15438"
+  },
+  "index.qmd": {
+    "index.html": "80ecc2cf",
+    "index.tex": "4568a828"
+  },
+  "testFolder/testpage.qmd": {
+    "testpage.html": "695d9225",
+    "testpage.tex": "e0c3f276"
+  },
+  "testpage.qmd": {
+    "testpage.html": "72bf13f8"
+  },
+  "Wk7_onwards/7_2_WkSummary.qmd": {
+    "7_2_WkSummary.html": "5649b492"
+  },
+  "Wk7_onwards/7_1_labLog.qmd": {
+    "7_1_labLog.html": "2bafea87"
+  },
+  "Wk1_22_01_2026/1_2_WkSummary.qmd": {
+    "1_2_WkSummary.html": "aa57bd9f"
+  },
+  "Wk1_22_01_2026/1_1_labLog.qmd": {
+    "1_1_labLog.html": "0fe04045"
+  },
+  "Wk6_26_02_2026/6_2_WkSummary.qmd": {
+    "6_2_WkSummary.html": "ec673e69"
+  },
+  "Wk6_26_02_2026/6_1_labLog.qmd": {
+    "6_1_labLog.html": "5965459c"
+  },
+  "Wk4_12_02_2026/4_1_labLog.qmd": {
+    "4_1_labLog.html": "5fdeb700"
+  },
+  "Wk4_12_02_2026/4_2_WkSummary.qmd": {
+    "4_2_WkSummary.html": "cb5a4669"
+  },
+  "Wk3_05_02_2026/3_1_labLog.qmd": {
+    "3_1_labLog.html": "b85c76aa"
+  },
+  "Wk3_05_02_2026/3_2_WkSummary.qmd": {
+    "3_2_WkSummary.html": "69366121"
+  },
+  "Wk2_29_01_2026/2_1_labLog.qmd": {
+    "2_1_labLog.html": "cc7684bc"
+  },
+  "Wk2_29_01_2026/2_2_WkSummary.qmd": {
+    "2_2_WkSummary.html": "e529f6dd"
+  },
+  "Wk5_19_02_2026/5_1_labLog.qmd": {
+    "5_1_labLog.html": "50c4fad9"
+  },
+  "Wk5_19_02_2026/5_2_WkSummary.qmd": {
+    "5_2_WkSummary.html": "56b70e74"
+  },
+  "Wk0/0_3_Module_and_assignment_specifics.qmd": {
+    "0_3_Module_and_assignment_specifics.html": "af6e917f"
+  },
+  "Wk0/0_0_Wk0_preface.qmd": {
+    "0_0_Wk0_preface.html": "9e2456bf"
+  },
+  "Wk0/0_2_Bibliography.qmd": {
+    "0_2_Bibliography.html": "322a56f0"
+  },
+  "Wk0/0_5_background_theory_and_concepts.qmd": {
+    "0_5_background_theory_and_concepts.html": "5715ccad"
+  },
+  "Wk0/0_4_General_pre_prep_log.qmd": {
+    "0_4_General_pre_prep_log.html": "b49bba9e"
+  },
+  "Wk0/0_1_test page.qmd": {
+    "0_1_test page.html": "b6ef74f7"
+  },
+  "Wk0/0_1_test_page.qmd": {
+    "0_1_test_page.html": "10001b38"
+  }
+}

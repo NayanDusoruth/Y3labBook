@@ -1,0 +1,6 @@
+---
+title: "labBook"
+author: "Nayan Dusoruth"
+---
+
+This is a digital lab book for Y3 lab module produced using quarto.

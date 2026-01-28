@@ -1,0 +1,56 @@
+# 0.3 - Module and assignment specifics
+
+**Course details:**
+Unit director: Dr Andrei Sarua (a.sarua@bristol.ac.uk)
+Technical support: Tom Kennedy (Tom.Kennedy@bristol.ac.uk)
+
+Lab opening hours: 10:00-13:00 14:00-17:00
+First lab date: 22/01/2026
+Last lab date: 26/02/2026
+
+**Assessment details:**
+Lab book submission due date: 12:30 16/03/2026
+Lab report submission due date: 12:30 16/03/2026
+Assessed on: 
+	- In lab attendance/performance
+	- lab book 
+	- final report
+Marking criteria:
+	- Knowledge & understanding
+	- Intellectual skills
+	- Research & scientific practices
+	- Professional & life skills
+	
+**Lab details:**
+Mab group: C (Thursday labs)
+Lab partner: Scarlett Kitchener (up24667@bristol.ac.uk)
+Lab experiment: Ising model
+Supervisor: Dr Francesco Turci (f.turci@bristol.ac.uk)
+
+**Guidance on lab book:**
+Digital lab book using onenote; should be continuous diary over project; make sure to copy any handwritten notes into the lab book. Needs to be submitted as exported PDF.
+
+**Guidance on final report:**
+Final report is scientific letter style paper using provided LaTex template.
+4 pages total (inc everything, inc references/appendix). Best "example" of style to write in will be published scientific articles in area of study.
+
+**Lab handbook experiment description (\cite{labHandbook}):**
+The Ising model represents a simplified magnet in which each atom has a spin, which can
+only take one of two values, 'up' and 'down'. Historically, it played a fundamental role in
+the theory of phase transitions in statistical physics, since it goes from a non-magnetic
+state at high temperature to a magnetic state at low temperatures, below the Curie
+temperature Tc. But there are many surprises, and the model and its close relatives are
+still central to modern physics. For example, the 2016 Nobel prize was awarded to
+Kosterlitz and Thouless for the theory of phase transitions in the related XY model (where
+the spin is still fixed in size, but can have any direction in the x-y plane). The Ising model is
+discrete and so is particularly suited for investigation by computers. In this laboratory we
+shall investigate the thermodynamics of the Ising model using the Metropolis Monte-
+Carlo method. Using this approach, we shall investigate the Ising model in zero, one and
+two dimensions, seeing how the statistical state changes as temperature and magnetic
+field are varied. In particular, we will use the Metropolis method to investigate the
+'critical exponents' in the two-dimensional model, which represent how the
+magnetization, energy, entropy, heat capacity, etc., change near to the Curie
+temperature Tc. Optionally, the role of the lattice geometry, dimensionality, and similar
+models, such as Potts and XY could also be explored. This laboratory is specific to
+theoretical physics students, and introduces concepts, which will be fundamental in the
+later, e.g., 4th year Phase Transitions course.

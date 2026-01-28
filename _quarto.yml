@@ -1,0 +1,103 @@
+project:
+  type: website
+  output-dir: _output
+
+website:
+  title: "labBook"
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+    - section: "Wk0"
+      contents:
+      - text: "Wk0 Preface"
+        href: Wk0/0_0_Wk0_preface.qmd
+
+      - text: "Wk0.1 Test page"
+        href: Wk0/0_1_test_page.qmd
+
+      - text: "Wk0.2 Bibliography"
+        href: Wk0/0_2_Bibliography.qmd
+
+      - text: "Wk0.3 Module and assignment specifics"
+        href: Wk0/0_3_Module_and_assignment_specifics.qmd
+
+      - text: "Wk0.4 General pre-prep log"
+        href: Wk0/0_4_General_pre_prep_log.qmd
+
+      - text: "Wk0.5 Background theory and concepts"
+        href: Wk0/0_5_background_theory_and_concepts.qmd
+
+
+    - section: "Wk1"
+      contents:
+      - text: "Wk 1.1 Lab log"
+        href: Wk1_22_01_2026/1_1_labLog.qmd
+
+      - text: "Wk 1.2 summary"
+        href: Wk1_22_01_2026/1_2_WkSummary.qmd
+
+
+    - section: "Wk2"
+      contents:
+      - text: "Wk 2.1 Lab log"
+        href: Wk2_29_01_2026/2_1_labLog.qmd
+
+      - text: "Wk 2.2 summary"
+        href: Wk2_29_01_2026/2_2_WkSummary.qmd
+
+
+    - section: "Wk3"
+      contents:
+      - text: "Wk 3.1 Lab log"
+        href: Wk3_05_02_2026/3_1_labLog.qmd
+
+      - text: "Wk 3.2 summary"
+        href: Wk3_05_02_2026/3_2_WkSummary.qmd
+
+
+    - section: "Wk4"
+      contents:
+      - text: "Wk 4.1 Lab log"
+        href: Wk4_12_02_2026/4_1_labLog.qmd
+
+      - text: "Wk 4.2 summary"
+        href: Wk4_12_02_2026/4_2_WkSummary.qmd
+
+
+    - section: "Wk5"
+      contents:
+      - text: "Wk 5.1 Lab log"
+        href: Wk5_19_02_2026/5_1_labLog.qmd
+
+      - text: "Wk 5.2 summary"
+        href: Wk5_19_02_2026/5_2_WkSummary.qmd
+
+
+    - section: "Wk6"
+      contents:
+      - text: "Wk 6.1 Lab log"
+        href: Wk6_26_02_2026/6_1_labLog.qmd
+
+      - text: "Wk 6.2 summary"
+        href: Wk6_26_02_2026/6_2_WkSummary.qmd
+
+
+    - section: "Wk7 - Post Wk6"
+      contents:
+      - text: "Wk 7.1 Lab log"
+        href: Wk7_onwards/7_1_labLog.qmd
+
+      - text: "Wk 7.2 summary"
+        href: Wk7_onwards/7_2_WkSummary.qmd
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+

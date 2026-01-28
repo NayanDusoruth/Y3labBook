@@ -1,0 +1,22 @@
+# 0.2 Bibliography
+
+
+A page to keep track of which references are used. Note table 0.1, 0.2 aren't formatted citations, instead representing an easy way to keep track of references and the information needed to create formatted citations. Note that I intend to use a a python script in my personal library to convert tabulated reference information to .bib files.
+
+The tables generally have the following fields:
+* CitationKey (internal reference name)
+* Entry type (article, book, online, misc)
+* Note (personal notes on the citation)
+* URL (preferably direct link to where I got it from)
+* ISBN (if relevant)
+* DOI (if relevant)
+* Author
+* Title
+* bookTitle
+* Publisher
+* Year
+* Journal
+
+Currently all bilbiography information is stored in 'mainBibliography.csv' (unsure how to get quarto to display it here)
+
+

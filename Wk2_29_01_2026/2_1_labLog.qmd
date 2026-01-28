@@ -1,0 +1,8 @@
+# 2.1 Lab session notes
+
+## 28/01/2026 note:
+Have begun switching from onenote labbook to a quarto document.
+Still hand copy equations for "Wk0.5 background theory and concept".
+
+## 29/01/2026 lab log
+

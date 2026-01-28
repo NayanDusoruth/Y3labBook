@@ -1,0 +1,12 @@
+{
+  "hash": "ce65ae90865f5fdfe3d3db0eadcd1ad3",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: testPage blah balh bal\n---\n\n\n\n![testImage](no.png){fig-alt:\"A test image\"}\n\n\n::: {#69c9a5b8 .cell execution_count=1}\n``` {.python .cell-code}\nimport os\nprint(\"hello world\")\nprint(os.getcwd())\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nhello world\n/Users/nayandusoruth/Desktop/Y3physics/Lab module/labProject/QuartoNotebook/testFolder\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "testpage_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
