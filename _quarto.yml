@@ -43,8 +43,11 @@ website:
       - text: "Wk 2.1 Lab log"
         href: Wk2_29_01_2026/2_1_labLog.qmd
 
+      - text: "Wk 2.2 Additional Reading"
+        href: wk2_29_01_2026/2_2_additionalReading.qmd
+
       - text: "Wk 2.2 summary"
-        href: Wk2_29_01_2026/2_2_WkSummary.qmd
+        href: Wk2_29_01_2026/2_3_WkSummary.qmd
 
 
     - section: "Wk3"
