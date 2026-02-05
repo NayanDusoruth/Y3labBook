@@ -2,3 +2,26 @@
 
 ## 05/02/2026:
 Quick group meeting w/Turci
+
+Discussed w/Scarlett direction; she's more interested in cluster behaviour, i'm more interested in critical exponents.
+Most of the core code functionality is setup; so there may be a point at which we start to diverge in our research interests.
+TBD, more code experimentation and setup to do, but to be considered.
+
+quickly attempted to generate data over temperature; however 1/np.array doesn't create a list of reciprocals; so that was a mistake
+
+am generally fiddling with data ranges and plotting graphs to get an idea of what data ranges would be ideal for this project.
+generally speaking range $\beta \in [0, 3]$ seems appropriate.
+
+
+### general reading
+Reading more through cite{complexityAndCriticality} whilst waiting for data to generate.
+
+Note to self, can incorporate boltzman distribution Eq. 0.4:
+
+$p = \frac{e^{-H\beta}}{Z}$ \ \ \ \ \ \ \ \ \ \ \ \  Eq. 0.4
+
+Into observable average as:
+
+$<A> = \frac{1}{Z}\sum{e^{-H\beta} \cdot A_{i}}$  \ \ \ \ \ \ \ \ \ \ \ \  Eq. 0.5
+
+my be useful to better compute observables in main config

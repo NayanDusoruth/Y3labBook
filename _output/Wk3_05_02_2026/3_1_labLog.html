@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -331,7 +360,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">05/02/2026:</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">05/02/2026:</a>
+  <ul class="collapse">
+  <li><a href="#general-reading" id="toc-general-reading" class="nav-link" data-scroll-target="#general-reading">general reading</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -345,8 +377,20 @@ ul.task-list li input[type="checkbox"] {
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section">05/02/2026:</h2>
 <p>Quick group meeting w/Turci</p>
+<p>Discussed w/Scarlett direction; she’s more interested in cluster behaviour, i’m more interested in critical exponents. Most of the core code functionality is setup; so there may be a point at which we start to diverge in our research interests. TBD, more code experimentation and setup to do, but to be considered.</p>
+<p>quickly attempted to generate data over temperature; however 1/np.array doesn’t create a list of reciprocals; so that was a mistake</p>
+<p>am generally fiddling with data ranges and plotting graphs to get an idea of what data ranges would be ideal for this project. generally speaking range <span class="math inline">\(\beta \in [0, 3]\)</span> seems appropriate.</p>
+<section id="general-reading" class="level3">
+<h3 class="anchored" data-anchor-id="general-reading">general reading</h3>
+<p>Reading more through cite{complexityAndCriticality} whilst waiting for data to generate.</p>
+<p>Note to self, can incorporate boltzman distribution Eq. 0.4:</p>
+<p><span class="math inline">\(p = \frac{e^{-H\beta}}{Z}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 0.4</p>
+<p>Into observable average as:</p>
+<p><span class="math inline">\(&lt;A&gt; = \frac{1}{Z}\sum{e^{-H\beta} \cdot A_{i}}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 0.5</p>
+<p>my be useful to better compute observables in main config</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
