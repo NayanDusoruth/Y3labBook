@@ -223,7 +223,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../wk2_29_01_2026/2_2_additionalReading.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../Wk2_29_01_2026/2_2_additionalReading.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 2.2 Additional Reading</span></a>
   </div>
 </li>
@@ -363,6 +363,9 @@ window.Quarto = {
   <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">05/02/2026:</a>
   <ul class="collapse">
   <li><a href="#general-reading" id="toc-general-reading" class="nav-link" data-scroll-target="#general-reading">general reading</a></li>
+  <li><a href="#general-log-continued" id="toc-general-log-continued" class="nav-link" data-scroll-target="#general-log-continued">general log continued</a></li>
+  <li><a href="#to-do-list" id="toc-to-do-list" class="nav-link" data-scroll-target="#to-do-list">To do list:</a></li>
+  <li><a href="#lab-log-continuation" id="toc-lab-log-continuation" class="nav-link" data-scroll-target="#lab-log-continuation">lab log continuation</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -376,7 +379,7 @@ window.Quarto = {
 <p>#Wk3 lab log</p>
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section">05/02/2026:</h2>
-<p>Quick group meeting w/Turci</p>
+<p>Quick group meeting w/Turci; outlined report requirements, structure and expectations</p>
 <p>Discussed w/Scarlett direction; she’s more interested in cluster behaviour, i’m more interested in critical exponents. Most of the core code functionality is setup; so there may be a point at which we start to diverge in our research interests. TBD, more code experimentation and setup to do, but to be considered.</p>
 <p>quickly attempted to generate data over temperature; however 1/np.array doesn’t create a list of reciprocals; so that was a mistake</p>
 <p>am generally fiddling with data ranges and plotting graphs to get an idea of what data ranges would be ideal for this project. generally speaking range <span class="math inline">\(\beta \in [0, 3]\)</span> seems appropriate.</p>
@@ -386,10 +389,127 @@ window.Quarto = {
 <p>Note to self, can incorporate boltzman distribution Eq. 0.4:</p>
 <p><span class="math inline">\(p = \frac{e^{-H\beta}}{Z}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 0.4</p>
 <p>Into observable average as:</p>
-<p><span class="math inline">\(&lt;A&gt; = \frac{1}{Z}\sum{e^{-H\beta} \cdot A_{i}}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 0.5</p>
-<p>my be useful to better compute observables in main config</p>
+<p><span class="math inline">\(&lt;A&gt; = \frac{1}{Z}\sum{e^{-H\beta} \cdot A_{i}}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.1</p>
+<p>my be useful to better compute observables in main config Also, may be useful to normalise observables to number of spins ()</p>
+</section>
+<section id="general-log-continued" class="level3">
+<h3 class="anchored" data-anchor-id="general-log-continued">general log continued</h3>
+<p>Have implemented above; the absolute magnetisation over beta plots change from:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/beforeWeightedAverage.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 3.1 - <span class="math inline">\(M(\beta)\)</span> before implementing Eq. 3.1 for (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>)</figcaption>
+</figure>
+</div>
+<p>to</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/afterWeightedAverage.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 3.2 - <span class="math inline">\(M(\beta)\)</span> after implementing Eq. 3.1 for (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>)</figcaption>
+</figure>
+</div>
+<p>This change seems to better incorporate the probability of configs, thus “converging” the average magnetisation to the “true” magnetisation significantly faster and better. This has made the phase transition a lot clearer; in (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>) appears to be ~ <span class="math inline">\(\beta_{c}=0.4\)</span> - note however that equilibration times are a lot longer near criticality, so is noisier</p>
+</section>
+<section id="to-do-list" class="level3">
+<h3 class="anchored" data-anchor-id="to-do-list">To do list:</h3>
+<ul>
+<li>implemenet variable equilibration steps into dataset (so can pass in either float, or array of equilibration values) (done)</li>
+<li>normalise observables</li>
+<li>Figure out way to compute critical <span class="math inline">\(\beta_{c}\)</span> from data</li>
+<li>do a basic fit to <span class="math inline">\(|T - T_{c}|^{x}\)</span> where <span class="math inline">\(x\)</span> is the critical exponent
+<ul>
+<li>examine basic <span class="math inline">\(x\)</span> over a range of sizes to establish finite size effects</li>
+<li>try and figure out way to account for finite size effects</li>
+</ul></li>
+<li>repeat analysis in higher dimensions</li>
+</ul>
+</section>
+<section id="lab-log-continuation" class="level3">
+<h3 class="anchored" data-anchor-id="lab-log-continuation">lab log continuation</h3>
+<p>have tested a narrower temperature range (<span class="math inline">\(T \in [0.5, 5]\)</span>), yields:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/narrowTemp.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 3.3 - absolute magnetisation over temperature for (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>)</figcaption>
+</figure>
+</div>
+<p>Note how high temperatures seemingly have a lot more uncertainty.</p>
+<p>Also generated plots for the other observables:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/energies.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 3.4 - energies (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/partition.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 3.5 - partition function (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/entropies.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 3.6 - entropies (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>)</figcaption>
+</figure>
+</div>
+<p>Note how Fig 3.4 seems to have some asymmetry in it’s transition. It appears to have a near discontinuous increase about <span class="math inline">\(T\approx2\)</span>, but has a smoother continuous change as T increases. A few potential explanations worth considering:</p>
+<ul>
+<li>From cite{complexityAndCriticality}, it seems that the <span class="math inline">\(|T - T_{c}|^{x}\)</span> expressions are usually one sided; this may be a manifestation of that?</li>
+<li>May be finite size effect</li>
+</ul>
+<p>hemlholtz plot finally produced (code errors required re-simulating data for useful results):</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/helmholtz.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 3.7 - Helmholtz free energies (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>)</figcaption>
+</figure>
+</div>
+<p>It seems that the critical temperature coincides w/minima of helmholtz free energy (ignoring outlying data points). Unsure if this is coincidental or not, however if so, may provide an incredibly easy method of finding the critical temperature.</p>
+<section id="dataset-data-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="dataset-data-analysis">dataset data analysis:</h4>
+<p>Starting to think about how to analyse the data being generated. Particularly, need to do following:</p>
+<ul>
+<li>find the critical temperature</li>
+<li>fit exponent curves of form <span class="math inline">\(|T - T_{c}|^{x}\)</span> to observables as appropriate (they may be one sided)</li>
+</ul>
+<p>To do so however it is necessary to filter for evident outliers in the data. This may be done manually, however it’d be more convenient to do so automatically. A potential means to do this would be to filter by a generic “continuity check”. Given a particular observable <span class="math inline">\(a_{i}\)</span> with neighbours <span class="math inline">\(a_{i-1}\)</span>, <span class="math inline">\(a_{i+1}\)</span>; it would interpolate between the neighbours; if <span class="math inline">\(a_{i}\)</span> is within uncertainty of the interpolated value, it is accepted, else it is rejected. This approach may cause erroneous results however when evaluating the edges of the dataset. Since this method relies on neighbours, it can’t validate data at either end of the dataset. It may be possible to extrapolate to the data edges from the next 2 nearest points?</p>
+<p>That may be a better way of doing it; extrapolate from the 2 nearest points for the continuity check. For most datapoints that will be both neighbours, however for the endpoints it will extrapolate from the data.</p>
+<p>This method may be a bit crude, but should discard most outliers. THe main risk is that it may “flatten” and trends in the data due to datapoints being too far apart from each other. However adequate sampling density should avoid this issue.</p>
+<p>Quickly implementing this method on the helmholtz energies yields: <img src="figures/helmholtzFiltered.png" class="img-fluid quarto-figure quarto-figure-left" alt="Fig 3.8 - Filtered Helmholtz free energies (d=2, L=20)"></p>
+<p>Which seems to not work. minor fixes; code is UGLY, but it seems to work. Filtering seems to work.</p>
+<p>Talked to Dr Turci, asked about the apparent minima in helmholtz free energy; pointed out its a non standard way of finding critical temps; suscpetibility/spin and specific capacity/spin are more common:</p>
+<p><span class="math inline">\(\chi = \beta\frac{&lt;M&gt;^2 - &lt;M^{2}&gt;}{N}\)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.2</p>
+<p><span class="math inline">\(C = \beta^{2} \cdot k_{b} \cdot \frac{&lt;E&gt;^2 - &lt;E^{2}&gt;}{N}\)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.3</p>
+<p>attempted implementation; doesn’t seem to be working yet. needing to resimulate the data. Am also unsure how to propagate errors through the susceptibility and heat capacity either. propagating errors in terms yields:</p>
+<p><span class="math inline">\(\Delta \chi^{2} = (\frac{\beta}{N})^{2}((2&lt;M&gt;)^{2}\Delta&lt;M&gt;^2 + \Delta&lt;M^{2}&gt;^2)\)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.4</p>
+<p><span class="math inline">\(\Delta C^{2} = (\frac{\beta^{2}}{N})^{2}((2&lt;E&gt;)^{2}\Delta&lt;E&gt;^2 + \Delta&lt;E^{2}&gt;^2)\)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.5</p>
+<p>susceptibility seems to be working-ish (errors are massive but given expression i’m not sure error propagation makes sense as a concept) - also peak of susceptibility seems to be offset relative to apparent critical temperature in all other graphs (<span class="math inline">\(T_Cs \approx 3\)</span>).</p>
+<p>Error found. Eqs 3.2-3.5 use the mean, code was using weighted average instead. Quick graphs produced:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/susceptibility.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 3.8 - Susceptibility (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/heatCapacity.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 3.7 - Heat capacity (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>)</figcaption>
+</figure>
+</div>
+<p>Don’t think these work fully. actually unsure if i should used weighted average; textbook seems to indicate weighted average? All of these tests have been conducted on a single dataset (saved for convenience) - it may be worth testing on a larger, more fine grain dataset.</p>
+</section>
+<section id="to-do-list-1" class="level4">
+<h4 class="anchored" data-anchor-id="to-do-list-1">To Do list:</h4>
+<ul>
+<li>fix susceptibility and heat capacity computations</li>
+<li>run big dataset; see if that fixes</li>
+<li>figure out exponent fitting</li>
+</ul>
 
 
+</section>
 </section>
 </section>
 

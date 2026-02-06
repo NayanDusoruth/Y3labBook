@@ -1,7 +1,7 @@
 #Wk3 lab log
 
 ## 05/02/2026:
-Quick group meeting w/Turci
+Quick group meeting w/Turci; outlined report requirements, structure and expectations
 
 Discussed w/Scarlett direction; she's more interested in cluster behaviour, i'm more interested in critical exponents.
 Most of the core code functionality is setup; so there may be a point at which we start to diverge in our research interests.
@@ -22,6 +22,121 @@ $p = \frac{e^{-H\beta}}{Z}$ \ \ \ \ \ \ \ \ \ \ \ \  Eq. 0.4
 
 Into observable average as:
 
-$<A> = \frac{1}{Z}\sum{e^{-H\beta} \cdot A_{i}}$  \ \ \ \ \ \ \ \ \ \ \ \  Eq. 0.5
+$<A> = \frac{1}{Z}\sum{e^{-H\beta} \cdot A_{i}}$  \ \ \ \ \ \ \ \ \ \ \ \  Eq. 3.1
 
 my be useful to better compute observables in main config
+Also, may be useful to normalise observables to number of spins (\frac{A}{N})
+
+### general log continued
+Have implemented above; the absolute magnetisation over beta plots change from:
+
+![Fig 3.1 - $M(\beta)$ before implementing Eq. 3.1 for ($d=2$, $L=20$)](figures/beforeWeightedAverage.png){fig-align="left"}
+
+to
+
+![Fig 3.2 - $M(\beta)$ after implementing Eq. 3.1 for ($d=2$, $L=20$)](figures/afterWeightedAverage.png){fig-align="left"}
+
+This change seems to better incorporate the probability of configs, thus "converging" the average magnetisation to the "true" magnetisation significantly faster and better.
+This has made the phase transition a lot clearer; in ($d=2$, $L=20$) appears to be ~ $\beta_{c}=0.4$ - note however that equilibration times are a lot longer near criticality, so is noisier
+
+
+
+
+
+### To do list:
+* implemenet variable equilibration steps into dataset (so can pass in either float, or array of equilibration values) (done)
+* normalise observables 
+* Figure out way to compute critical $\beta_{c}$ from data
+* do a basic fit to $|T - T_{c}|^{x}$ where $x$ is the critical exponent 
+	* examine basic $x$ over a range of sizes to establish finite size effects
+	* try and figure out way to account for finite size effects 
+
+* repeat analysis in higher dimensions
+
+
+### lab log continuation
+have tested a narrower temperature range ($T \in [0.5, 5]$), yields:
+
+![Fig 3.3 - absolute magnetisation over temperature for ($d=2$, $L=20$)](figures/narrowTemp.png){fig-align="left"}
+
+Note how high temperatures seemingly have a lot more uncertainty.
+
+Also generated plots for the other observables:
+
+![Fig 3.4 - energies ($d=2$, $L=20$)](figures/energies.png){fig-align="left"}
+
+![Fig 3.5 - partition function ($d=2$, $L=20$)](figures/partition.png){fig-align="left"}
+
+![Fig 3.6 - entropies ($d=2$, $L=20$)](figures/entropies.png){fig-align="left"}
+
+Note how Fig 3.4 seems to have some asymmetry in it's transition. It appears to have a near discontinuous increase about $T\approx2$, but has a smoother continuous change as T increases.
+A few potential explanations worth considering:
+
+* From cite{complexityAndCriticality}, it seems that the $|T - T_{c}|^{x}$ expressions are usually one sided; this may be a manifestation of that?
+* May be finite size effect
+
+
+hemlholtz plot finally produced (code errors required re-simulating data for useful results):
+
+![Fig 3.7 - Helmholtz free energies ($d=2$, $L=20$)](figures/helmholtz.png){fig-align="left"}
+
+It seems that the critical temperature coincides w/minima of helmholtz free energy (ignoring outlying data points). Unsure if this is coincidental or not, however if so, may provide an incredibly easy method of finding the critical temperature.
+
+
+#### dataset data analysis:
+Starting to think about how to analyse the data being generated.
+Particularly, need to do following:
+
+* find the critical temperature
+* fit exponent curves of form $|T - T_{c}|^{x}$ to observables as appropriate (they may be one sided)
+
+To do so however it is necessary to filter for evident outliers in the data. This may be done manually, however it'd be more convenient to do so automatically.
+A potential means to do this would be to filter by a generic "continuity check". Given a particular observable $a_{i}$ with neighbours $a_{i-1}$, $a_{i+1}$; it would interpolate between the neighbours; if $a_{i}$ is within uncertainty of the interpolated value, it is accepted, else it is rejected. This approach may cause erroneous results however when evaluating the edges of the dataset. Since this method relies on neighbours, it can't validate data at either end of the dataset. It may be possible to extrapolate to the data edges from the next 2 nearest points?
+
+That may be a better way of doing it; extrapolate from the 2 nearest points for the continuity check. For most datapoints that will be both neighbours, however for the endpoints it will extrapolate from the data.
+
+This method may be a bit crude, but should discard most outliers. 
+THe main risk is that it may "flatten" and trends in the data due to datapoints being too far apart from each other. However adequate sampling density should avoid this issue.
+
+Quickly implementing this method on the helmholtz energies yields:
+![Fig 3.8 - Filtered Helmholtz free energies ($d=2$, $L=20$)](figures/helmholtzFiltered.png){fig-align="left"}
+
+
+Which seems to not work. minor fixes; code is UGLY, but it seems to work.
+Filtering seems to work.
+
+Talked to Dr Turci, asked about the apparent minima in helmholtz free energy; pointed out its a non standard way of finding critical temps; suscpetibility/spin and specific capacity/spin are more common:
+
+$\chi = \beta\frac{<M>^2 - <M^{2}>}{N}$\ \ \ \ \ \ \ \ \ \ \ \  Eq. 3.2
+
+$C = \beta^{2} \cdot k_{b} \cdot \frac{<E>^2 - <E^{2}>}{N}$\ \ \ \ \ \ \ \ \ \ \ \  Eq. 3.3
+
+
+attempted implementation; doesn't seem to be working yet.
+needing to resimulate the data.
+Am also unsure how to propagate errors through the susceptibility and heat capacity either.
+propagating errors in terms yields:
+
+$\Delta \chi^{2} = (\frac{\beta}{N})^{2}((2<M>)^{2}\Delta<M>^2 + \Delta<M^{2}>^2)$\ \ \ \ \ \ \ \ \ \ \ \  Eq. 3.4
+
+$\Delta C^{2} = (\frac{\beta^{2}}{N})^{2}((2<E>)^{2}\Delta<E>^2 + \Delta<E^{2}>^2)$\ \ \ \ \ \ \ \ \ \ \ \  Eq. 3.5
+
+
+susceptibility seems to be working-ish (errors are massive but given expression i'm not sure error propagation makes sense as a concept) - also peak of susceptibility seems to be offset relative to apparent critical temperature in all other graphs ($T_Cs \approx 3$).
+
+Error found.
+Eqs 3.2-3.5 use the mean, code was using weighted average instead.
+Quick graphs produced:
+
+![Fig 3.8 - Susceptibility ($d=2$, $L=20$)](figures/susceptibility.png){fig-align="left"}
+
+![Fig 3.7 - Heat capacity ($d=2$, $L=20$)](figures/heatCapacity.png){fig-align="left"}
+
+Don't think these work fully. actually unsure if i should used weighted average; textbook seems to indicate weighted average?
+All of these tests have been conducted on a single dataset (saved for convenience) - it may be worth testing on a larger, more fine grain dataset.
+
+#### To Do list:
+* fix susceptibility and heat capacity computations
+* run big dataset; see if that fixes
+* figure out exponent fitting
+
