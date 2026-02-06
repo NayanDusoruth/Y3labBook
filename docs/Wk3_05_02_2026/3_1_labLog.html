@@ -367,6 +367,7 @@ window.Quarto = {
   <li><a href="#to-do-list" id="toc-to-do-list" class="nav-link" data-scroll-target="#to-do-list">To do list:</a></li>
   <li><a href="#lab-log-continuation" id="toc-lab-log-continuation" class="nav-link" data-scroll-target="#lab-log-continuation">lab log continuation</a></li>
   </ul></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">06/02/2026:</a></li>
   </ul>
 </nav>
     </div>
@@ -506,11 +507,17 @@ window.Quarto = {
 <li>fix susceptibility and heat capacity computations</li>
 <li>run big dataset; see if that fixes</li>
 <li>figure out exponent fitting</li>
+<li>add a “recompute observables” method to config object; that way old config objects can be updated if computations change</li>
+<li>double check all observable computations</li>
 </ul>
-
-
 </section>
 </section>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">06/02/2026:</h2>
+<p>Not doing proper lab work today, but am generating some larger datasets in the background (40 configs over <span class="math inline">\(T\in [0.5, 5]\)</span> for 100x100, 1000 Equil steps, 500 sim steps) to have better testing/development data. Furthermore, Dr Turci did some more thinking on the apparent minimal helmholtz free energy cooresponding to critical temperature. Apparently the critical temperture should show up in the second derivative <span class="math inline">\(\frac{d^{2}F}{dT^{2}}\)</span>, but shouldn’t be visible as is (given <span class="math inline">\(dF = pdV -SdT\)</span>, and entropy SHOULD be positive (may need to double check thats computed correctly), F should decrease over data range); Dr Turci suggests it may be poor sampling about <span class="math inline">\(T_{c}\)</span>; i suspect i’ve computed an observable incorrectly.</p>
+
+
 </section>
 
 </main> <!-- /main -->
