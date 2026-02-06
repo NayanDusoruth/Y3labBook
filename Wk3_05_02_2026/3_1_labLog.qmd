@@ -139,4 +139,14 @@ All of these tests have been conducted on a single dataset (saved for convenienc
 * fix susceptibility and heat capacity computations
 * run big dataset; see if that fixes
 * figure out exponent fitting
+* add a "recompute observables" method to config object; that way old config objects can be updated if computations change
+* double check all observable computations
+
+
+
+## 06/02/2026:
+Not doing proper lab work today, but am generating some larger datasets in the background (40 configs over $T\in [0.5, 5]$ for 100x100, 1000 Equil steps, 500 sim steps) to have better testing/development data.
+Furthermore, Dr Turci did some more thinking on the apparent minimal helmholtz free energy cooresponding to critical temperature.
+Apparently the critical temperture should show up in the second derivative $\frac{d^{2}F}{dT^{2}}$, but shouldn't be visible as is (given $dF = pdV -SdT$, and entropy SHOULD be positive (may need to double check thats computed correctly), F should decrease over data range); Dr Turci suggests it may be poor sampling about $T_{c}$; i suspect i've computed an observable incorrectly.
+
 
