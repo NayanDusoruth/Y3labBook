@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>background_theory_and_concepts – labBook</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bcb4737e8fbcf1e9dfc00b59f8305558.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Wk0/0_0_Wk0_preface.html">Wk0</a></li><li class="breadcrumb-item"><a href="../Wk0/0_5_background_theory_and_concepts.html">Wk0.5 Background theory and concepts</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">labBook</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Wk0</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk0/0_0_Wk0_preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk0 Preface</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk0/0_1_test_page.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk0.1 Test page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk0/0_2_Bibliography.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk0.2 Bibliography</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk0/0_3_Module_and_assignment_specifics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk0.3 Module and assignment specifics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk0/0_4_General_pre_prep_log.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk0.4 General pre-prep log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk0/0_5_background_theory_and_concepts.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Wk0.5 Background theory and concepts</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Wk1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk1_22_01_2026/1_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 1.1 Lab log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk1_22_01_2026/1_2_WkSummary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 1.2 summary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Wk2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk2_29_01_2026/2_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 2.1 Lab log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk2_29_01_2026/2_2_additionalReading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 2.2 Additional Reading</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk2_29_01_2026/2_3_WkSummary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 2.2 summary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Wk3</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk3_05_02_2026/3_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 3.1 Lab log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk3_05_02_2026/3_2_WkSummary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 3.2 summary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Wk4</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk4_12_02_2026/4_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 4.1 Lab log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk4_12_02_2026/4_2_WkSummary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 4.2 summary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Wk5</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk5_19_02_2026/5_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 5.1 Lab log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk5_19_02_2026/5_2_WkSummary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 5.2 summary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Wk6</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk6_26_02_2026/6_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 6.1 Lab log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk6_26_02_2026/6_2_WkSummary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 6.2 summary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Wk7 - Post Wk6</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk7_onwards/7_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 7.1 Lab log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk7_onwards/7_2_WkSummary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 7.2 summary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#background-theory-and-concepts" id="toc-background-theory-and-concepts" class="nav-link active" data-scroll-target="#background-theory-and-concepts">0.5 Background theory and concepts</a>
+  <ul class="collapse">
+  <li><a href="#foreword" id="toc-foreword" class="nav-link" data-scroll-target="#foreword">Foreword</a></li>
+  <li><a href="#statement-of-ising-model" id="toc-statement-of-ising-model" class="nav-link" data-scroll-target="#statement-of-ising-model">Statement of ising model</a></li>
+  <li><a href="#basics-of-statistical-mechanics" id="toc-basics-of-statistical-mechanics" class="nav-link" data-scroll-target="#basics-of-statistical-mechanics">Basics of statistical mechanics:</a>
+  <ul class="collapse">
+  <li><a href="#macro-vs-microstates" id="toc-macro-vs-microstates" class="nav-link" data-scroll-target="#macro-vs-microstates">Macro vs microstates:</a></li>
+  <li><a href="#entropy-and-helmholtz-free-energy" id="toc-entropy-and-helmholtz-free-energy" class="nav-link" data-scroll-target="#entropy-and-helmholtz-free-energy">Entropy and helmholtz free energy:</a></li>
+  <li><a href="#observables" id="toc-observables" class="nav-link" data-scroll-target="#observables">Observables:</a></li>
+  <li><a href="#mean-field-theory" id="toc-mean-field-theory" class="nav-link" data-scroll-target="#mean-field-theory">Mean field theory:</a></li>
+  </ul></li>
+  <li><a href="#single-spin-limit" id="toc-single-spin-limit" class="nav-link" data-scroll-target="#single-spin-limit">Single spin limit:</a></li>
+  <li><a href="#phase-transitions-in-percolation-setups" id="toc-phase-transitions-in-percolation-setups" class="nav-link" data-scroll-target="#phase-transitions-in-percolation-setups">Phase transitions in percolation setups:</a>
+  <ul class="collapse">
+  <li><a href="#d-percolation" id="toc-d-percolation" class="nav-link" data-scroll-target="#d-percolation">1D percolation:</a></li>
+  <li><a href="#d-percolation-1" id="toc-d-percolation-1" class="nav-link" data-scroll-target="#d-percolation-1">2D percolation</a></li>
+  <li><a href="#finite-lattice-effects" id="toc-finite-lattice-effects" class="nav-link" data-scroll-target="#finite-lattice-effects">Finite lattice effects</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Wk0/0_0_Wk0_preface.html">Wk0</a></li><li class="breadcrumb-item"><a href="../Wk0/0_5_background_theory_and_concepts.html">Wk0.5 Background theory and concepts</a></li></ol></nav></header>
+
+
+
+
+<section id="background-theory-and-concepts" class="level1">
+<h1>0.5 Background theory and concepts</h1>
+<p>/NOT FINISHED COPYING OVER FROM ONENOTE: NEED TO FIX EQUATIONS/</p>
+<section id="foreword" class="level2">
+<h2 class="anchored" data-anchor-id="foreword">Foreword</h2>
+<p>These notes are NOT the full background for this lab, but represents a quick primer on the ising model, statistical mechanic and associated concepts considered useful prior to this lab’s start. This is informed by and my old Y2 notes informed by unless stated otherwise.</p>
+</section>
+<section id="statement-of-ising-model" class="level2">
+<h2 class="anchored" data-anchor-id="statement-of-ising-model">Statement of ising model</h2>
+<p>The ising model is a model magnet made up of a lattice of magnetic spin states:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/isingModel.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 0.1 - Basic ising model illustration - Each lattice point represents a magnetic spin in an up/down state</figcaption>
+</figure>
+</div>
+<p>With each spin state having a value of <span class="math inline">\(σ_i=±1\)</span>. Each spin states is affected by it’s neighbours and some global magnetic field B. As such, the system’s total energy follows:</p>
+<p>With each spin state having a value of σ_i=±1. Each spin states is affected by it’s neighbours and some global magnetic field B. As such, the system’s total energy follows:</p>
+<p>H=−∑_ij▒〖Jσ_i σ_j 〗−∑_i▒〖Bσ_i 〗 Eq. 0.1 - Hamiltonian of ising model # TODO: fix</p>
+<p>Where the first summation represents nearest neighbour interactions, and the second summation represents aligment to the global magnetic field B. J represents some coupling strength between neighbours.</p>
+<p>Importantly, the Ising model experiences a phase transition; with all elements well alligned at low temperatures, and disorganised at high temperatures. This results in high magnetisations at low temperatures, with 0 magnetisation past some phase transition temperature:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/phaseTransition.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 0.2 - Graph illustrating magnetisation over temperature</figcaption>
+</figure>
+</div>
+<p>This occurs because a magnetised “well aligned” state minimises energy, whilst a non magnetised “disorded” state maximises entropy. As outlined by Eq. 0.8, systems will try to minimise energy and maximise entropy, with these competing dynamics moderated by the system temperature. As such, the ising model is expected to undergo a temperature dependent phase transition.</p>
+</section>
+<section id="basics-of-statistical-mechanics" class="level2">
+<h2 class="anchored" data-anchor-id="basics-of-statistical-mechanics">Basics of statistical mechanics:</h2>
+<p>Statistical mechanics represents a physics toolset to study systems of many interacting elements.</p>
+<p>Key quantities: There are some key quantities in statistical mechanics worth defining initially:</p>
+<p>H=system energy</p>
+<p>T=system temperature</p>
+<p>k_b=1.38⋅10^(−23) J/K Boltzman constant </p>
+<p>Z=∑exp⁡(−H/(k_b T)) Eq. 0.2 - Partition function</p>
+<p>β=1/(k_b T) Eq. 0.3</p>
+<section id="macro-vs-microstates" class="level3">
+<h3 class="anchored" data-anchor-id="macro-vs-microstates">Macro vs microstates:</h3>
+<p>Given that statistical systems are made up of many elements as in fig.&nbsp;0.1:</p>
+<p>A system’s “microstate” describes the specific configuration of all elements in the system, and have a probability:</p>
+<p>p=1/Z exp⁡(−H/(k_b T)) Eq. 0.4 - Boltzman distribution</p>
+<p>“Macrostates” on the other hand represent particular observables of a system (I.E, temperature, total energy, magnetisation…). A given macrostate will be made up of many microstates. As such, macrostate probability is “weighed” by the number of corresponding microstates.</p>
+</section>
+<section id="entropy-and-helmholtz-free-energy" class="level3">
+<h3 class="anchored" data-anchor-id="entropy-and-helmholtz-free-energy">Entropy and helmholtz free energy:</h3>
+<p>Entropy is an important quantity in statistical mechanics, and represents some sense of “disorder” of a system:</p>
+<p>S=−k_b∑p ln(p)=dF/dT Eq. 0.5 - Entropy</p>
+<p>S(T)=k_b ln⁡(Z)+U/T Eq. 0.6 - Alternate entropy expression</p>
+<p>dS/dU=1/T Eq. 0.7 - Entropy temperature relation</p>
+<p>Importantly, statistical systems will attempt to both maximise entropy and minimise energy; thus leading to the idea of helmholtz free energy:</p>
+<p>F(U,T)=U−TS(U)=−k_b Tln(Z) Eq. 0.8 - Helmholtz free energy</p>
+<p>This “balance” between energy U and entropy S, mediated by temperature T generally illustrates the contradiction between a system maximising entropy and minimising energy. As such, The probability of a microstate Eq. 0.4 can be rewritten in terms of the Helmholtz free energy:</p>
+<p>p(U,T)=1/Z exp⁡(−βF(U,T)) Eq .0.9 - probability in terms of helmholtz energy</p>
+</section>
+<section id="observables" class="level3">
+<h3 class="anchored" data-anchor-id="observables">Observables:</h3>
+<p>Given these ideas, its useful to summarize some observables:</p>
+<p>u=<h> =1/Z Hexp ∑⁡(−βH)=dln(Z)/dβ Eq. 0.10 - Average energy</h></p>
+<p>C=T dS/dT Eq. 0.11 - Specific heat capacity</p>
+<p>&lt;σ_i&gt; =1/Z∑σ_i exp⁡(−βH) Eq. 0.12 - Average spin (specific to ising model)</p>
+<p>M=∑&lt;σ_i&gt; =1/Z=σ_i exp ∑⁡(−βH)=dF/dβ Eq. 0.13 - Magnetisation (specific to ising model)</p>
+</section>
+<section id="mean-field-theory" class="level3">
+<h3 class="anchored" data-anchor-id="mean-field-theory">Mean field theory:</h3>
+<p>The hamiltonian Eq. 0.1 is difficult to compute due to the nearest neighbour terms. A useful approximation is “Mean Field Theory”. This incorporates the effect of neighbours into the total magnetic field, creating a “mean field”:</p>
+<p>H=−∑_ij▒〖Jσ_i σ_j 〗−∑_i▒〖Bσ_i 〗<br>
+= −∑_ij▒〖Jσ_i&lt;σ_j&gt;〗−∑_i▒〖Bσ_i 〗<br>
+= −∑_i▒〖B_eff σ_i 〗 Eq. 0.14 - Mean field ising hamiltonian</p>
+<p>B_eff=B+J∑_neigh</p>
+</section>
+</section>
+<section id="single-spin-limit" class="level2">
+<h2 class="anchored" data-anchor-id="single-spin-limit">Single spin limit:</h2>
+<p>It is useful to consider an ising model with a single element. The hamiltonian of such a system becomes:</p>
+<p>H=−Bσ Eq. 0.16 - Single spin hamiltonian</p>
+<p>So its statistical properties become:</p>
+<p>Z=exp⁡(−Bβ)+exp⁡(Bβ) Eq. 0.17 - Single spin partition</p>
+<p>&lt;σ&gt; =tanh⁡〖(Bβ) 〗 Eq. 0.18 - single spin average spin</p>
+<p>Applying a mean field theory by substituting in Eq. 0.15 to Eq. 0.18 yields:</p>
+<p>&lt;σ&gt; =tanh⁡〖((B+zJ&lt;σ_j&gt;)β) 〗 Eq. 0.19</p>
+<p>This cannot be solved algebraically, but may be solved numerically for a stable system. This eventually yields either a trivial &lt;σ≥0 solution, or some magnetic solution with phase transiton:</p>
+<p>T_c=zJ/k_b Eq.0.20 - Single spin transition temperature</p>
+</section>
+<section id="phase-transitions-in-percolation-setups" class="level2">
+<h2 class="anchored" data-anchor-id="phase-transitions-in-percolation-setups">Phase transitions in percolation setups:</h2>
+<p>This lab studies phase transitions in the ising model. Percolations are a simple setup which illustrate the key features of phase transitions, and was fully explained by the “percolations” chapter of .</p>
+<p>A percolation system comprises a lattice of binary ([1] OR [0]) states as illustrated:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/percolation.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 0.3 - illustration of percolation on 2D lattice with length L=5 - Note black cells represent [1], whilst white cells represent [0]</figcaption>
+</figure>
+</div>
+<p>Each cell is assigned a state randomly according to a probability:</p>
+<p>P(1)=p Eq. 0.21 p(0)=(1−p) Eq. 0.22</p>
+<p>These cells form clusters of adjacent cells. Given an infinitely large lattice (unlike the finite lattice in fig 0.3), clusters may be finite in size, or infinite in size, spreading across the lattice. This is somewhat illustrated in fig 0.3, where the cluster for p=15/25 could plausibly extend infinitely beyond the 5x5 lattice.</p>
+<p>As such, the phase transition of percolation models is between a phase where all clusters are finite in size, and a phase where clusters are infinite and span across the lattice.</p>
+<section id="d-percolation" class="level3">
+<h3 class="anchored" data-anchor-id="d-percolation">1D percolation:</h3>
+<p>It is useful to consider the trivial case of a 1D lattice:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/oneDpercolation.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 0.4 - 1D percolation lattice</figcaption>
+</figure>
+</div>
+<p>It is evident that infinite cluster can only occur if all cells are in a [1] state, which for an infinite lattice lim_(L→∞)⁡L would require a “critical occupation probability” p_c=1.</p>
+<p>However it is useful to illustrate certain tools to describe phase transitions in percolation.</p>
+<p>Firstly, it is useful to count the number of clusters of a given size:</p>
+<p>N(s,p, L)=# of clusters with s cells, given a probability p, with lattice size L. Eq. 0.23</p>
+<p>Which in the 1D case evaluates to:</p>
+<p>N_(d=1) (s,p,L)=L(1−p)^2 p^s Eq. 0.24</p>
+<p>It is also useful to normalise this “cluster number density” as:</p>
+<p>n_(d=1) (s,p)=(N_(d=1) (s,p,L))/L=L(1−p)^2 p^s Eq.0.25</p>
+<p>Which generally follows as:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/percolationNumber.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 0.5 - Approximate plot of number density n_(d=1) (s,p) as a function of cluster size - note the droppof at the “characteristic cluster size” s_ϵ</figcaption>
+</figure>
+</div>
+<p>Note that any cell’s probability of belonging to a cluster of size s follows:</p>
+<p>p_cluster (s)=sn(s,p) Eq. 0.26</p>
+<p>The characteristic cluster size is a useful metric which generally follows:</p>
+<p>s_ϵ=−1/(ln⁡(p)) Eq. 0.27</p>
+<p>It is also interesting to note some “weighted average cluster size” weighted by cluster size:</p>
+<p>χ(p)=1/N_occupied ∑_(k=1)<sup>(N_clusters)▒s_k</sup>2 Eq. 0.28</p>
+<p>Which in the 1D case yields:</p>
+<p>χ_(d=1) (p)=(1+p)/(1−p) Eq. 0.29</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/clusterSize.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 0.6 - rough plot of average cluster size over probability - note how it diverges as p→∞ representing an approach to infinite clusters for p=1</figcaption>
+</figure>
+</div>
+<p>Finally it is also useful to note a “correlation function” g(r_i,r_j) which describes the probability of any two cells belonging to the same cluster which relates to the average size:</p>
+<p>∑_(r_i)▒〖g(r_i,r_j)〗=χ(p) Eq. 0.30</p>
+</section>
+<section id="d-percolation-1" class="level3">
+<h3 class="anchored" data-anchor-id="d-percolation-1">2D percolation</h3>
+<p>Given these tools of a 1D percolation case, it is possible to expand to 2D in order to examine these phase transitions a bit more closely.</p>
+<p>Particularly it is useful to characterise phase transitions in terms of order parameters and critical exponents.</p>
+<p>As a general rule, the “order parameter” represents the n’th derivative of the system’s helmholtz free energy where a discontinuity appears; in the case of percolation, that is the probability of percolation p_∞.</p>
+<p>Such order parameters can ~ generally be expressed in terms of critical exponents near the critical point:</p>
+<p>p_∞∝|├ ​p−p_c ┤|^β Eq 0.31</p>
+<p>Where β is the critical exponent that characterises this phase transition. In a 2D percolation lattice, it has been found to a value β=5/36</p>
+<p>The average cluster size also experiences such a discontinuity so may be expressed in terms of its own exponent:</p>
+<p>χ(p)∝|├ ​p−p_c ┤|^(−γ) Eq 0.32</p>
+<p>With a 2D percolation lattice having an exponent γ=43/18.</p>
+</section>
+<section id="finite-lattice-effects" class="level3">
+<h3 class="anchored" data-anchor-id="finite-lattice-effects">Finite lattice effects</h3>
+<p>Note that a lot of effects are size dependent; however generally it is useful to extract these effects for an infinite lattice.</p>
+<p>The 1D lattice in fig.&nbsp;0.4 may illustrate this. Consider the boundary vs “bulk” cells. The bulk cells have 2 neighbors whilst the boundary cells only have one. As such, the bulk cells are more likely to be part of a cluster than the boundary ones. This noticeably distorts the effects of the system. However this effect becomes more negligeable as the lattice grows, with the number of bulk cells growing faster than the number of boundary cells.</p>
+<p>Such finite lattice effects do however need to be accounted for, as they reduce the apparent discontinuity in phase transitions, making measurement of the critical exponents more difficult.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
