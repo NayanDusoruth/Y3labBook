@@ -150,3 +150,38 @@ Furthermore, Dr Turci did some more thinking on the apparent minimal helmholtz f
 Apparently the critical temperture should show up in the second derivative $\frac{d^{2}F}{dT^{2}}$, but shouldn't be visible as is (given $dF = pdV -SdT$, and entropy SHOULD be positive (may need to double check thats computed correctly), F should decrease over data range); Dr Turci suggests it may be poor sampling about $T_{c}$; i suspect i've computed an observable incorrectly.
 
 
+## 07/02/2026:
+
+### log:
+observables implemented:
+
+* Energy (code verified)
+* Magnetisation (code verified)
+* Partition function (code verified)
+* Entropy (code verified)
+* Helmholtz free energy (code verified)
+* Boltzman weights (Given average observables are weighted by boltzman distribution, computing these weights seperatedly made sense) (code verified)
+* Susceptibility (code verified)
+* Heat capacity (code verified)
+
+quickly rewrote calcEnergy - needed to be generalised; plus was opportunity to double check correct implementation
+Similarly rewrote partition function method as it used a very similar implementation to calcEnergy
+
+Have double checked all the computation; nothing is immediately wrong
+reran data; seems susceptibility fixed itself, however heat capacity hasn't
+
+I suspect it may be due to noise in the data? would need to run a larger dataset to verify.
+
+Implementing "continuous saving" to "fromBetas" dataset construction - ensures that data saves over dataset generation ensuring interrupted runs don't wipe out whole chunk of data (also implemented "already exists" checks as part of this, allows for quick restarts) - code is messy but works and shouldn't need to be touched significantly
+
+cleaned up code a bit
+
+have started working in critical exponent fitting.
+
+comparing values to https://www.phys.ens.psl.eu/~jacobsen/AIMES/Ising.pdf which quotes $\beta=\frac{1}{8}$; testing finds $\beta=0.03$ for 20x20 config; off by a factor of 4. Not the worst result however, but the fit leaves much to be desired:
+
+![Fig 3.8 - Fit attempt to $M\propto |T-T_{c}|^{\beta}$ $\beta = -0.03\pm0.05$ ($d=2$, $L=20$)](figures/fitAttempt.png){fig-align="left"}
+
+Will need to do some debugging to see where this may be coming from...
+
+have created new .py file; simply a place to streamline "bulk data generation" - imports everything else, that way desired datasets can be neatly laid out as a queue
