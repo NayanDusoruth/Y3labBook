@@ -185,3 +185,10 @@ comparing values to https://www.phys.ens.psl.eu/~jacobsen/AIMES/Ising.pdf which 
 Will need to do some debugging to see where this may be coming from...
 
 have created new .py file; simply a place to streamline "bulk data generation" - imports everything else, that way desired datasets can be neatly laid out as a queue
+Furthermore, have updated how datasets save configs to files; they will also check if duplicate configs already exist and skip them if they do.
+This makes restarting interrupted datasets easier, and means that its easier to add data to an existing dataset (I.E, it may be useful to add a high density region around critical points with higher equilibration steps).
+
+Am setting my laptop to generate some main data runs overnight; these are all 2D models in 3 batches which represent 1000, 2000, 3000 equilibration steps.
+The first 2 batckes (1000, 2000 steps) have a range of sizes [20, 30, 40] whilst the final batch has a range [20, 30, 40, 50, 60, 70, 80, 90].
+This was done to compare the effects of equilibration times, as well as to begin investigating finite size effects empirically.
+The longest equilibration dataset has more sizes because it is expected to be the highest quality data, and establishing the effect of equilibration can be done with a more limited subset of data.
