@@ -130,7 +130,7 @@ Quick graphs produced:
 
 ![Fig 3.8 - Susceptibility ($d=2$, $L=20$)](figures/susceptibility.png){fig-align="left"}
 
-![Fig 3.7 - Heat capacity ($d=2$, $L=20$)](figures/heatCapacity.png){fig-align="left"}
+![Fig 3.9 - Heat capacity ($d=2$, $L=20$)](figures/heatCapacity.png){fig-align="left"}
 
 Don't think these work fully. actually unsure if i should used weighted average; textbook seems to indicate weighted average?
 All of these tests have been conducted on a single dataset (saved for convenience) - it may be worth testing on a larger, more fine grain dataset.
@@ -180,7 +180,7 @@ have started working in critical exponent fitting.
 
 comparing values to https://www.phys.ens.psl.eu/~jacobsen/AIMES/Ising.pdf which quotes $\beta=\frac{1}{8}$; testing finds $\beta=0.03$ for 20x20 config; off by a factor of 4. Not the worst result however, but the fit leaves much to be desired:
 
-![Fig 3.8 - Fit attempt to $M\propto |T-T_{c}|^{\beta}$ $\beta = -0.03\pm0.05$ ($d=2$, $L=20$)](figures/fitAttempt.png){fig-align="left"}
+![Fig 3.10 - Fit attempt to $M\propto |T-T_{c}|^{\beta}$ $\beta = -0.03\pm0.05$ ($d=2$, $L=20$)](figures/fitAttempt.png){fig-align="left"}
 
 Will need to do some debugging to see where this may be coming from...
 
@@ -192,3 +192,74 @@ Am setting my laptop to generate some main data runs overnight; these are all 2D
 The first 2 batckes (1000, 2000 steps) have a range of sizes [20, 30, 40] whilst the final batch has a range [20, 30, 40, 50, 60, 70, 80, 90].
 This was done to compare the effects of equilibration times, as well as to begin investigating finite size effects empirically.
 The longest equilibration dataset has more sizes because it is expected to be the highest quality data, and establishing the effect of equilibration can be done with a more limited subset of data.
+
+
+## 09/02/2026
+Laptop is still generating data.
+First night, it shut itself down interrupting progress.
+Second night it was kept on, and mostly handled the 100x100 over 3000eq steps, 500sim steps. Starting at ~ 14:00 08/02/2026, till now (10:00 09/02/2026) it has generated 18/40 datapoints.
+Given that each simulation calls "mcMove" for each step taken, and that "mcMove" loops through and performs a computation for each of its cells; the above timings gives a rough computation speed of  $8750 cell computations/s$ (alternatively $31.5 \cdot 10^{6} cell computations/Hr$ or $0.756 \cdot 10^{9} cell computations/day$).
+THis is useful as it allows for time estimates for future datasets to be planned in advance, allowing for better planning.
+The theoretical timings for potential datasets of 3000eq, 500sim steps, 40 datapoints follow:
+
+* 3D $20^{3}$: ~1.48 days
+* 3D $22^{3}$: ~1.97 days
+* 4D $10^{4}$: ~ 1.85 days
+* 5D $6^{5}$: ~1.44 days
+* 6D $4^{6}$: ~0.76 days
+
+* 4D $20^{4}$: ~ 29.6 days
+
+The large 4D example is impractical to generate given the time constraints of this project. 
+However all the other options aren't impractical. Combined they'd take ~1Wk non stop computation to complete. Whilst there are likely to be some interruptions, i think this may be feasible.
+The main question is to what degree can finite size effects be accounted for in such small model sizes; if its possible to account and "correct" for such finite size effects, comparing critical exponents over $d\in[2,6]$ may be interesting. However given the significant computational investement, its worth **knowing** the following:
+
+* How to correct/account for finite size effects - this is crucial, otherwise the different sized different dimensioned datasets can't be compared to each other
+* What should the dataset parameters be for arbitrary dimension/size:
+	* How does model size and dimension relate to required equilibration steps
+	* How does critical temperature relate to dimensionality
+	* this is important because of the heavy computational investment; exploring a particular dimension to determine these parameters experimentally would be a waste of time; so trying to estimate the appropriate equilibration steps and temperature ranges.
+
+As such, its worth doing some additional reading/research particularly to address correcting for finite size effects.
+
+
+### minor reading
+cite{complexityAndCriticality} has a section on scaling laws (p188 onwards); the key insight worth taking away is normalising the temperature.
+The critical exponents for a given observable typically look like:
+
+$O \propto |T-T_{c}|^{\beta}$ 
+
+the insight is to normalise $T$ as:
+
+$t=\frac{T-T{c}}{T_{c}}$ \ \ \ \ \ \ \ \ \ \ \ \  Eq. 3.6
+
+s.t that the exponent expression become:
+
+$O \propto |t|^{\beta}$  \ \ \ \ \ \ \ \ \ \ \ \  Eq. 3.7
+
+
+$O = h(x) |t|^{\beta}$  \ \ \ \ \ \ \ \ \ \ \ \  Eq. 3.8
+
+where $h(x)$ represents some scaling function. The book goes into further detail as to what these scaling functions should look like, however given the data being generated, it should be possible to fit for $h(x)$ and $\beta$ empirically. It may be interesting to compare the empirically fit $h(x)$ to analytical solutions of time allows, but it seems that its possible to entirely bypass that analytical component (which makes this project more straightofrward for the moment).
+
+Note the book goes into some detail about the scaling function. Examining the scaling function for magnetisation specifically, it generally has the shape:
+
+
+![Fig 3.11 - Scaling function for magnetisation rough sketch - note $M(\frac{h}{|t|^{\Delta}})$ as a function of external magnetic field](figures/scalingSketch.png){fig-align="left"}
+
+And relationships:
+
+$lim_{x\to 0}M_{+}(x)=0$  \ \ \ \ \ \ \ \ \ \ \ \  Eq. 3.9
+
+$lim_{x\to 0}M_{-}(x)=c \ne 0$  \ \ \ \ \ \ \ \ \ \ \ \  Eq. 3.10
+
+So when fitting the data, it will be necessary to consider which side of the critical point is being evaluated
+
+
+
+
+
+
+
+
+
