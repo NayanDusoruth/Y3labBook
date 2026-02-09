@@ -375,6 +375,8 @@ window.Quarto = {
   <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">09/02/2026</a>
   <ul class="collapse">
   <li><a href="#minor-reading" id="toc-minor-reading" class="nav-link" data-scroll-target="#minor-reading">minor reading</a></li>
+  <li><a href="#further-reading-citescalingcardy" id="toc-further-reading-citescalingcardy" class="nav-link" data-scroll-target="#further-reading-citescalingcardy">further reading cite{scalingCardy}</a></li>
+  <li><a href="#plans-from-this-point-forwards" id="toc-plans-from-this-point-forwards" class="nav-link" data-scroll-target="#plans-from-this-point-forwards">plans from this point forwards:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -601,6 +603,107 @@ window.Quarto = {
 <p><span class="math inline">\(lim_{x\to 0}M_{+}(x)=0\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.9</p>
 <p><span class="math inline">\(lim_{x\to 0}M_{-}(x)=c \ne 0\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.10</p>
 <p>So when fitting the data, it will be necessary to consider which side of the critical point is being evaluated</p>
+</section>
+<section id="further-reading-citescalingcardy" class="level3">
+<h3 class="anchored" data-anchor-id="further-reading-citescalingcardy">further reading cite{scalingCardy}</h3>
+<p>The textbook cite{scalingCardy} has a chapter going over group renormalisation methods. I don’t fully understand the concept, but will attempt to summarise the useful parts of it here.</p>
+<section id="renormalisation-transform" class="level4">
+<h4 class="anchored" data-anchor-id="renormalisation-transform">renormalisation transform</h4>
+<p>The key idea is the idea of a “block” or “renormalisation transform”. This entails “coarsening” the ising model, grouping spins together into larger “aggregate” spins as illustrated:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/blockTransform.png" class="img-fluid figure-img"></p>
+<figcaption>Illustration of block transform</figcaption>
+</figure>
+</div>
+<p>This transform is noted as:</p>
+<p><span class="math inline">\(s' = R/{s/}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.11</p>
+<p>This has the effect of rescaling the model to different sizes. Crucially for later, behaviour at the critical point is unchanged by renormalisation. Likewise, the partition function is generally unchanged by renormalisation:</p>
+<p><span class="math inline">\(Z' = R{Z}\)</span></p>
+<p><span class="math inline">\(\downarrow\)</span></p>
+<p><span class="math inline">\(Z'=Z\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.12</p>
+</section>
+<section id="renormalisation-of-coupling-strength-j-and-example-of-correlation-lenght" class="level4">
+<h4 class="anchored" data-anchor-id="renormalisation-of-coupling-strength-j-and-example-of-correlation-lenght">renormalisation of coupling strength <span class="math inline">\(J\)</span> and example of correlation lenght</h4>
+<p>A particular example noted by the book, is the renormalisation of the coupling strength <span class="math inline">\(J\)</span> (the book uses <span class="math inline">\(K\)</span>) in the ising hamiltonian, which follows:</p>
+<p><span class="math inline">\(R{J} = J'  \approx b^{d-1}J\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.13</p>
+<p>where <span class="math inline">\(b\)</span> is an arbitrary parameter, <span class="math inline">\(d\)</span> is the dimension. Furthermore (apparently), for <span class="math inline">\(J\)</span> close to the critical point %J_{c}%, the following relation follows:</p>
+<p><span class="math inline">\(J' \approx J_{c}+b^{y}(J-J_{c})\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.14</p>
+<p><span class="math inline">\(y=\frac{ln(J_{c})}{ln(b)}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.15</p>
+<p>For some <span class="math inline">\(J\)</span> dependent observable (the book uses correlation length <span class="math inline">\(\xi(J)\)</span>), the renormalisation transform results in:</p>
+<p><span class="math inline">\(\xi(J)=b\xi(J)\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.16</p>
+<p>And given some <span class="math inline">\(n(J)\)</span> repeated applications of the transform, this becomes:</p>
+<p><span class="math inline">\(\xi(J)=\xi_{0}b^{n(J)}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.17</p>
+<p>Given the critical behaviour of <span class="math inline">\(\xi\propto (J-J_{c})^{-v}\)</span>, it is possible to substitute in Eq 3.17 as:</p>
+<p><span class="math inline">\(\xi \propto (b^{y}(J-J_{c}))^{-v}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.18</p>
+<p>which generates a relationship between the critical exponent <span class="math inline">\(v\)</span> and the parameter <span class="math inline">\(y\)</span> derived from the renormalisation transform (I’m unsure how to do this however).</p>
+</section>
+<section id="general-theory---group-eq" class="level4">
+<h4 class="anchored" data-anchor-id="general-theory---group-eq">general theory - group eq</h4>
+<p>More generally, the renormalisation transform on some observable <span class="math inline">\(K\)</span> can be expressed as a linear transform of form:</p>
+<p><span class="math inline">\(K'_{a}-K_{c a} = \sum_{b}T_{ab}(K_{b}-K_{c b})\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.19</p>
+<p><span class="math inline">\(T_{ab} = frac{dK'_{a}}{dK_{b}}|_{k=k_{c}}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.20</p>
+<p>Skipping over a bunch of maths “scaling variables” can be defined and expressed as:</p>
+<p><span class="math inline">\(u_{i} = \sum \phi_{a}^{i}(K_{b}-K_{c b})\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.21</p>
+<p><span class="math inline">\(u_{i} = b^{y_{1}}u_{i}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.22</p>
+<p>where <span class="math inline">\(y_{i}\)</span> represent the renormalisation group eigenvalues (although the implications of this are lost on me).</p>
+<p>Note that these eigenvalues are classified as “relevant” if <span class="math inline">\(y_{i}&gt;0\)</span>.</p>
+</section>
+<section id="free-energy-scaling" class="level4">
+<h4 class="anchored" data-anchor-id="free-energy-scaling">free energy scaling</h4>
+<p>Given this theory, it is possible to rescale the Helmholtz free energy as:</p>
+<p><span class="math inline">\(f(\{K\}) = g(\{k\})+b^{-d}f(\{K'\})\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.23</p>
+<p><span class="math inline">\(b\)</span> is some constant and <span class="math inline">\(d\)</span> is the dimensionality. where <span class="math inline">\(g({K})\)</span> represents an inhomogeneous term which can be neglected when looking for critical exponents, so Eq. 3.23 becomes:</p>
+<p><span class="math inline">\(f(\{K\}) = b^{-d}f(\{K'\})\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.23</p>
+<p>Expressing this in terms of thermal and magnetic scaling parameters <span class="math inline">\(u_{t}\)</span>, <span class="math inline">\(u_{h}\)</span> eventually yields:</p>
+<p><span class="math inline">\(f_{s}(t,h) = |\frac{t}{t_{0}}|^{\frac{d}{y_{t}}}\Phi(\frac{\frac{h}{h_{0}}}{(\frac{t}{t_{0}})^{\frac{y_{h}}{y_{t}}}})\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.24</p>
+<p>where <span class="math inline">\(t_{0}, h_{0}\)</span> are scaling constants (unsure how to find these generally, may be relative to reference model size?)</p>
+<p>Further note i’m pretty sure this is in terms of normalised temperature <span class="math inline">\(t=\frac{T-T_{c}}{T_{c}}\)</span>, but not fully sure.</p>
+</section>
+<section id="relationship-to-critical-exponents" class="level4">
+<h4 class="anchored" data-anchor-id="relationship-to-critical-exponents">relationship to critical exponents</h4>
+<p>Given the free energy Eq 3.24, critical exponents for all other quantities follow:</p>
+<section id="heat-capacity" class="level5">
+<h5 class="anchored" data-anchor-id="heat-capacity">Heat capacity</h5>
+<p><span class="math inline">\(C=\frac{d^2f}{dt^{2}}\propto |t|^{-\alpha}\)</span></p>
+<p><span class="math inline">\(\alpha = 2-\frac{d}{y_{t}}\)</span></p>
+</section>
+<section id="spontaneous-magnetisation" class="level5">
+<h5 class="anchored" data-anchor-id="spontaneous-magnetisation">Spontaneous magnetisation</h5>
+<p><span class="math inline">\(m=\frac{df}{dh}\propto (t)^{\beta}\)</span></p>
+<p><span class="math inline">\(\beta=\frac{d-y_{h}}{y_{t}}\)</span></p>
+</section>
+<section id="susceptibility" class="level5">
+<h5 class="anchored" data-anchor-id="susceptibility">Susceptibility</h5>
+<p><span class="math inline">\(\chi=\frac{d^2f}{dh^{2}}\propto |t|^{-\gamma}\)</span></p>
+<p><span class="math inline">\(\gamma = \frac{2y_{h}-d}{y_{t}}\)</span></p>
+</section>
+<section id="magnetisation" class="level5">
+<h5 class="anchored" data-anchor-id="magnetisation">magnetisation</h5>
+<p><span class="math inline">\(m=\propto (h)^{\frac{1}{\delta}}\)</span></p>
+<p><span class="math inline">\(\delta=\frac{y_{h}}{d-y_{h}}\)</span></p>
+<p>All of these relate to each other with the relations:</p>
+<p><span class="math inline">\(\alpha + 2\beta +\gamma = 2\)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.25</p>
+<p><span class="math inline">\(\alpha + \beta(1+\delta)=2\)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.26</p>
+</section>
+</section>
+</section>
+<section id="plans-from-this-point-forwards" class="level3">
+<h3 class="anchored" data-anchor-id="plans-from-this-point-forwards">plans from this point forwards:</h3>
+<p>As it stands, I think i have a better idea of the renormalisation theory, however an still somewhat unsure how to use it. Particularly i’m unsure how to find the <span class="math inline">\(y_{t}\)</span>, <span class="math inline">\(y_{h}\)</span> scaling factors (i’m assuming that its scaling factors relative to a “baseline” size? so y_{0} would be value for baseline size, muliplied by y_{t} for any other size?).</p>
+<p>As such I have 2 options to deal with critical exponents:</p>
+<ul>
+<li>Fit to <span class="math inline">\(t=\frac{T-T_{c}}{T_{c}}\)</span> instead of T - this may already solve my issues in fig.&nbsp;3.10</li>
+<li>Ask Dr Turci how to relate current understanding of renormalisation theory to the data i have</li>
+</ul>
+<p>There are 2 possible outcomes of that:</p>
+<ul>
+<li>I can effectively renormalise the results of any sized configuration to an equivilant “standard size”</li>
+<li>I can’t do that</li>
+</ul>
+<p>If its possible to renormalise the results, it becomes possible to measure critical exponents and compare them between differently sized models. If this is the case, it may be possible to examine the exponents of significantly higher dimensions whilst simulating relatively small sizes. If so, it’ll be necessary to setup a queue of desired higher dimensioned datasets as soon as possible, and run it near continuously. If not i may need to restrict my investigations to <span class="math inline">\(d=2,3\)</span> for size <span class="math inline">\(L=20\)</span>.</p>
+<p>At any rate, the next coding objective is to figure out the exponent expression fitting and create a robust method for measuring the critical exponents for all observables (heat capacity, magnetisation, susceptibility)</p>
+<p>I’ll also need to find further references for: * values for critical exponents (wikipedia has an uncited table which is annoying) *</p>
 
 
 </section>
