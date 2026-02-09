@@ -368,6 +368,14 @@ window.Quarto = {
   <li><a href="#lab-log-continuation" id="toc-lab-log-continuation" class="nav-link" data-scroll-target="#lab-log-continuation">lab log continuation</a></li>
   </ul></li>
   <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">06/02/2026:</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">07/02/2026:</a>
+  <ul class="collapse">
+  <li><a href="#log" id="toc-log" class="nav-link" data-scroll-target="#log">log:</a></li>
+  </ul></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">09/02/2026</a>
+  <ul class="collapse">
+  <li><a href="#minor-reading" id="toc-minor-reading" class="nav-link" data-scroll-target="#minor-reading">minor reading</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -496,7 +504,7 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
 <p><img src="figures/heatCapacity.png" class="img-fluid figure-img"></p>
-<figcaption>Fig 3.7 - Heat capacity (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>)</figcaption>
+<figcaption>Fig 3.9 - Heat capacity (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>)</figcaption>
 </figure>
 </div>
 <p>Don’t think these work fully. actually unsure if i should used weighted average; textbook seems to indicate weighted average? All of these tests have been conducted on a single dataset (saved for convenience) - it may be worth testing on a larger, more fine grain dataset.</p>
@@ -516,8 +524,86 @@ window.Quarto = {
 <section id="section-1" class="level2">
 <h2 class="anchored" data-anchor-id="section-1">06/02/2026:</h2>
 <p>Not doing proper lab work today, but am generating some larger datasets in the background (40 configs over <span class="math inline">\(T\in [0.5, 5]\)</span> for 100x100, 1000 Equil steps, 500 sim steps) to have better testing/development data. Furthermore, Dr Turci did some more thinking on the apparent minimal helmholtz free energy cooresponding to critical temperature. Apparently the critical temperture should show up in the second derivative <span class="math inline">\(\frac{d^{2}F}{dT^{2}}\)</span>, but shouldn’t be visible as is (given <span class="math inline">\(dF = pdV -SdT\)</span>, and entropy SHOULD be positive (may need to double check thats computed correctly), F should decrease over data range); Dr Turci suggests it may be poor sampling about <span class="math inline">\(T_{c}\)</span>; i suspect i’ve computed an observable incorrectly.</p>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">07/02/2026:</h2>
+<section id="log" class="level3">
+<h3 class="anchored" data-anchor-id="log">log:</h3>
+<p>observables implemented:</p>
+<ul>
+<li>Energy (code verified)</li>
+<li>Magnetisation (code verified)</li>
+<li>Partition function (code verified)</li>
+<li>Entropy (code verified)</li>
+<li>Helmholtz free energy (code verified)</li>
+<li>Boltzman weights (Given average observables are weighted by boltzman distribution, computing these weights seperatedly made sense) (code verified)</li>
+<li>Susceptibility (code verified)</li>
+<li>Heat capacity (code verified)</li>
+</ul>
+<p>quickly rewrote calcEnergy - needed to be generalised; plus was opportunity to double check correct implementation Similarly rewrote partition function method as it used a very similar implementation to calcEnergy</p>
+<p>Have double checked all the computation; nothing is immediately wrong reran data; seems susceptibility fixed itself, however heat capacity hasn’t</p>
+<p>I suspect it may be due to noise in the data? would need to run a larger dataset to verify.</p>
+<p>Implementing “continuous saving” to “fromBetas” dataset construction - ensures that data saves over dataset generation ensuring interrupted runs don’t wipe out whole chunk of data (also implemented “already exists” checks as part of this, allows for quick restarts) - code is messy but works and shouldn’t need to be touched significantly</p>
+<p>cleaned up code a bit</p>
+<p>have started working in critical exponent fitting.</p>
+<p>comparing values to https://www.phys.ens.psl.eu/~jacobsen/AIMES/Ising.pdf which quotes <span class="math inline">\(\beta=\frac{1}{8}\)</span>; testing finds <span class="math inline">\(\beta=0.03\)</span> for 20x20 config; off by a factor of 4. Not the worst result however, but the fit leaves much to be desired:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/fitAttempt.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 3.10 - Fit attempt to <span class="math inline">\(M\propto |T-T_{c}|^{\beta}\)</span> <span class="math inline">\(\beta = -0.03\pm0.05\)</span> (<span class="math inline">\(d=2\)</span>, <span class="math inline">\(L=20\)</span>)</figcaption>
+</figure>
+</div>
+<p>Will need to do some debugging to see where this may be coming from…</p>
+<p>have created new .py file; simply a place to streamline “bulk data generation” - imports everything else, that way desired datasets can be neatly laid out as a queue Furthermore, have updated how datasets save configs to files; they will also check if duplicate configs already exist and skip them if they do. This makes restarting interrupted datasets easier, and means that its easier to add data to an existing dataset (I.E, it may be useful to add a high density region around critical points with higher equilibration steps).</p>
+<p>Am setting my laptop to generate some main data runs overnight; these are all 2D models in 3 batches which represent 1000, 2000, 3000 equilibration steps. The first 2 batckes (1000, 2000 steps) have a range of sizes [20, 30, 40] whilst the final batch has a range [20, 30, 40, 50, 60, 70, 80, 90]. This was done to compare the effects of equilibration times, as well as to begin investigating finite size effects empirically. The longest equilibration dataset has more sizes because it is expected to be the highest quality data, and establishing the effect of equilibration can be done with a more limited subset of data.</p>
+</section>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3">09/02/2026</h2>
+<p>Laptop is still generating data. First night, it shut itself down interrupting progress. Second night it was kept on, and mostly handled the 100x100 over 3000eq steps, 500sim steps. Starting at ~ 14:00 08/02/2026, till now (10:00 09/02/2026) it has generated 18/40 datapoints. Given that each simulation calls “mcMove” for each step taken, and that “mcMove” loops through and performs a computation for each of its cells; the above timings gives a rough computation speed of <span class="math inline">\(8750 cell computations/s\)</span> (alternatively <span class="math inline">\(31.5 \cdot 10^{6} cell computations/Hr\)</span> or <span class="math inline">\(0.756 \cdot 10^{9} cell computations/day\)</span>). THis is useful as it allows for time estimates for future datasets to be planned in advance, allowing for better planning. The theoretical timings for potential datasets of 3000eq, 500sim steps, 40 datapoints follow:</p>
+<ul>
+<li><p>3D <span class="math inline">\(20^{3}\)</span>: ~1.48 days</p></li>
+<li><p>3D <span class="math inline">\(22^{3}\)</span>: ~1.97 days</p></li>
+<li><p>4D <span class="math inline">\(10^{4}\)</span>: ~ 1.85 days</p></li>
+<li><p>5D <span class="math inline">\(6^{5}\)</span>: ~1.44 days</p></li>
+<li><p>6D <span class="math inline">\(4^{6}\)</span>: ~0.76 days</p></li>
+<li><p>4D <span class="math inline">\(20^{4}\)</span>: ~ 29.6 days</p></li>
+</ul>
+<p>The large 4D example is impractical to generate given the time constraints of this project. However all the other options aren’t impractical. Combined they’d take ~1Wk non stop computation to complete. Whilst there are likely to be some interruptions, i think this may be feasible. The main question is to what degree can finite size effects be accounted for in such small model sizes; if its possible to account and “correct” for such finite size effects, comparing critical exponents over <span class="math inline">\(d\in[2,6]\)</span> may be interesting. However given the significant computational investement, its worth <strong>knowing</strong> the following:</p>
+<ul>
+<li>How to correct/account for finite size effects - this is crucial, otherwise the different sized different dimensioned datasets can’t be compared to each other</li>
+<li>What should the dataset parameters be for arbitrary dimension/size:
+<ul>
+<li>How does model size and dimension relate to required equilibration steps</li>
+<li>How does critical temperature relate to dimensionality</li>
+<li>this is important because of the heavy computational investment; exploring a particular dimension to determine these parameters experimentally would be a waste of time; so trying to estimate the appropriate equilibration steps and temperature ranges.</li>
+</ul></li>
+</ul>
+<p>As such, its worth doing some additional reading/research particularly to address correcting for finite size effects.</p>
+<section id="minor-reading" class="level3">
+<h3 class="anchored" data-anchor-id="minor-reading">minor reading</h3>
+<p>cite{complexityAndCriticality} has a section on scaling laws (p188 onwards); the key insight worth taking away is normalising the temperature. The critical exponents for a given observable typically look like:</p>
+<p><span class="math inline">\(O \propto |T-T_{c}|^{\beta}\)</span></p>
+<p>the insight is to normalise <span class="math inline">\(T\)</span> as:</p>
+<p><span class="math inline">\(t=\frac{T-T{c}}{T_{c}}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.6</p>
+<p>s.t that the exponent expression become:</p>
+<p><span class="math inline">\(O \propto |t|^{\beta}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.7</p>
+<p><span class="math inline">\(O = h(x) |t|^{\beta}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.8</p>
+<p>where <span class="math inline">\(h(x)\)</span> represents some scaling function. The book goes into further detail as to what these scaling functions should look like, however given the data being generated, it should be possible to fit for <span class="math inline">\(h(x)\)</span> and <span class="math inline">\(\beta\)</span> empirically. It may be interesting to compare the empirically fit <span class="math inline">\(h(x)\)</span> to analytical solutions of time allows, but it seems that its possible to entirely bypass that analytical component (which makes this project more straightofrward for the moment).</p>
+<p>Note the book goes into some detail about the scaling function. Examining the scaling function for magnetisation specifically, it generally has the shape:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/scalingSketch.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 3.11 - Scaling function for magnetisation rough sketch - note <span class="math inline">\(M(\frac{h}{|t|^{\Delta}})\)</span> as a function of external magnetic field</figcaption>
+</figure>
+</div>
+<p>And relationships:</p>
+<p><span class="math inline">\(lim_{x\to 0}M_{+}(x)=0\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.9</p>
+<p><span class="math inline">\(lim_{x\to 0}M_{-}(x)=c \ne 0\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq. 3.10</p>
+<p>So when fitting the data, it will be necessary to consider which side of the critical point is being evaluated</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
