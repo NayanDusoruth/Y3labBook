@@ -400,7 +400,7 @@ At any rate, the next coding objective is to figure out the exponent expression 
 
 I'll also need to find further references for:
 * values for critical exponents (wikipedia has an uncited table which is annoying)
-* 
+* mean field theory derivations
 
 
 
