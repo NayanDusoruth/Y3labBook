@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -326,8 +355,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#wk-5" id="toc-wk-5" class="nav-link active" data-scroll-target="#wk-5">Wk 5</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">19/02/2026</a>
+  <ul class="collapse">
+  <li><a href="#task-list-for-today" id="toc-task-list-for-today" class="nav-link" data-scroll-target="#task-list-for-today">Task list for today:</a></li>
+  <li><a href="#log" id="toc-log" class="nav-link" data-scroll-target="#log">Log:</a></li>
+  <li><a href="#power-law-method" id="toc-power-law-method" class="nav-link" data-scroll-target="#power-law-method">power law method:</a></li>
+  <li><a href="#log-continued" id="toc-log-continued" class="nav-link" data-scroll-target="#log-continued">log continued</a></li>
+  <li><a href="#summary-of-issues-at-present" id="toc-summary-of-issues-at-present" class="nav-link" data-scroll-target="#summary-of-issues-at-present">summary of issues at present</a></li>
+  <li><a href="#plan-of-action-given-this-insight" id="toc-plan-of-action-given-this-insight" class="nav-link" data-scroll-target="#plan-of-action-given-this-insight">Plan of action given this insight:</a></li>
+  <li><a href="#log-continued-1" id="toc-log-continued-1" class="nav-link" data-scroll-target="#log-continued-1">log continued:</a></li>
+  <li><a href="#plan-from-this-point" id="toc-plan-from-this-point" class="nav-link" data-scroll-target="#plan-from-this-point">Plan from this point:</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Wk5_19_02_2026/5_1_labLog.html">Wk5</a></li><li class="breadcrumb-item"><a href="../Wk5_19_02_2026/5_1_labLog.html">Wk 5.1 Lab log</a></li></ol></nav></header>
@@ -335,8 +383,140 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="wk-5" class="level1">
+<h1>Wk 5</h1>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">19/02/2026</h2>
+<section id="task-list-for-today" class="level3">
+<h3 class="anchored" data-anchor-id="task-list-for-today">Task list for today:</h3>
+<ul>
+<li>standardise curtailement in exponent method (have it as optional DT parameter) [x]</li>
+<li>implement other critical exponent methods [x]
+<ul>
+<li>this includes slightly reworking graphing method to accomodate this [x]</li>
+<li>maybe also setup return report system to make testing easier [x]</li>
+</ul></li>
+<li>evaluate critical exponents relative to each other (scaling laws)
+<ul>
+<li>ask Dr Turci if he knows why i may be getting these underestimates
+<ul>
+<li>need to more carefully examine finite size effects because model sizes are relatively small</li>
+</ul></li>
+</ul></li>
+<li>reevaluate cumulant critical temp method [x]
+<ul>
+<li>only evaluate neighbouring sizes; they should converge [x]</li>
+</ul></li>
+<li>potentially write up power law critical temp method; compare critical temps [x]</li>
+</ul>
+</section>
+<section id="log" class="level3">
+<h3 class="anchored" data-anchor-id="log">Log:</h3>
+<p>tidied up exponent fitting method w/reportString and curtailement built in Reworked cumulant temp method; the critical temp should converge to the critical temp for larger and larger models; so currently picking largest value, although performing a fit and extrapolating would be a better approach in future. This works quite well atm though.</p>
+<p>note; curtailing the cumulant fit slightly (curtailing the lower end of the data) seems to improve the fit and improves the critical temperatures</p>
+<p>Fiddling around with parameters; curtailing data helps magnetisation and heat capacity fit, but not susceptibility which is odd.</p>
+<p>Going to implement power law critical temp method as this also produces estimate for critical exponents</p>
+<p>a factor of 2 is showing up a lot comparing expected vs actual values… this is suspicious</p>
+<p>implementing power law method seems to imply <span class="math inline">\(T_{c}=2.45\)</span> which is wrong; matches closely to apparent critical temperature.</p>
+</section>
+<section id="power-law-method" class="level3">
+<h3 class="anchored" data-anchor-id="power-law-method">power law method:</h3>
+<p>Power law method acknolwedges finite size effect with:</p>
+<p><span class="math inline">\((\beta(\infty) - \beta(V))^{-v}\propto L\)</span> / / / / / / / / / / / Eq 4.1</p>
+<p>Which yields:</p>
+<p><span class="math inline">\(\beta(v) = \beta_{c}-c_{1}L^{\frac{-1}{v}}\)</span> / / / / / / / / / / / Eq 4.2</p>
+<p>Which can be fit to the apparent critical temperatures derived from max susceptibility.</p>
+<p>Susceptibility thus relates to size as:</p>
+<p><span class="math inline">\(\chi_{max} \propto L^{\frac{\gamma}{v}}\)</span> / / / / / / / / / / / Eq 4.3</p>
+<p>which can be fitted, and <span class="math inline">\(\gamma\)</span> extracted.</p>
+</section>
+<section id="log-continued" class="level3">
+<h3 class="anchored" data-anchor-id="log-continued">log continued</h3>
+<p>Implementing the above, and excluding the 50x50 dataset (it seems to be off, will examine for outliers), <span class="math inline">\(v= 0.91\)</span> can be found (inc the 50x50 dataset yields <span class="math inline">\(v=0.45\)</span>). These two cases yield <span class="math inline">\(\gamma=0.44\)</span> and <span class="math inline">\(\gamma =0.22\)</span>. The fact that the 50x50 dataset seems off is frustrating…</p>
+<p>Refactor code to be a bit cleaner; unsure if the above power law method works fully; given it’s critical temp disagrees more significantly with standard values than the cumulant method, i’m hesitant to trust it.</p>
+</section>
+<section id="summary-of-issues-at-present" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-issues-at-present">summary of issues at present</h3>
+<p>Currently unsure where to go from here… There is some data issue with the 50x50 dataset, in order to evaluate finite size effects more data over a range of sizes is needed; however that is currently being generated. As such, i’m unsure how to examine my present data.</p>
+<p>The current deviations from standard values generally are: * <span class="math inline">\(\beta \approx 0.07\)</span> is less than standard value <span class="math inline">\(\beta = 0.125\)</span> * <span class="math inline">\(\gamma \approx 0.45\)</span> is significantly less than standard value <span class="math inline">\(\gamma = 1.75\)</span> * <span class="math inline">\(\alpha \approx 0.27\)</span> is significantly greater than stadard value of <span class="math inline">\(\alpha = 0\)</span></p>
+<p>The critical temperature values from the cumulant (<span class="math inline">\(T_{c}=2.229\)</span>) vs power law method (<span class="math inline">\(T_{c}=2.451\)</span>) disagree significantly, with the cumulant method closer to the standard value of <span class="math inline">\(T_{c}=2.269\)</span>. However the power law method is significantly limited by the small amount of data available to it, so this may improve in future.</p>
+<p>Presently the power law method provides a reasonable estimate of <span class="math inline">\(v=0.9\)</span> (standard value of 1) if the 50x50 dataset is excluded. However the power law method does not provide a good estimate of <span class="math inline">\(\gamma=0.44\)</span> if the 50x50 dataset is excluded. This is however somewhat consistent with the direct fit methods, which implies that whatever issue is causing these effects are present in both datasets.</p>
+<p>That alongside the fact that the direct fit method seems to fit relatively well (given R^2 values are generally <span class="math inline">\(R^{2}_{\beta}\approx 0.96\)</span>, <span class="math inline">\(R^{2}_{\gamma}\approx 0.69\)</span>, <span class="math inline">\(R^{2}_{\alpha}\approx 0.50\)</span>) suggests that this isn’t an issue with the analysis, but an issue with the data.</p>
+<p>Some possibilities may explain this: * incorrect dynamics - some aspect of the simulation is incorrectly implemented * incorrect observable computation - the observables (I.E, susceptibility) aren’t correctly computed * some additional finite size effect hasn’t been accounted for</p>
+<p>Dr Turci advice: * potential optimisation; hardcode 2d, 3d mc sweep * power fit as log instead of as is * correlated data may be main issue; run data for longer esp near criticality (may be worth computing autocorrelation) * sample “sparse” for susceptibility</p>
+</section>
+<section id="plan-of-action-given-this-insight" class="level3">
+<h3 class="anchored" data-anchor-id="plan-of-action-given-this-insight">Plan of action given this insight:</h3>
+<ul>
+<li>switch exponent fit to log fit - this may address some of my exponent issues</li>
+<li>try sampling susceptibility on sparser data; see if that improves “noisiness” in data
+<ul>
+<li>potentially compute autocorrelation length on data to quantify results</li>
+</ul></li>
+<li>extend data over longer MC sweeps
+<ul>
+<li>this may require purpose built optimisation</li>
+</ul></li>
+</ul>
+</section>
+<section id="log-continued-1" class="level3">
+<h3 class="anchored" data-anchor-id="log-continued-1">log continued:</h3>
+<p>attempted exponent fit w/log fit; improves results slightly for magnetisation</p>
+<p>Quickly attempted to sample every 20th data point for susceptibility to try and reduce correlations; this yields:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/susceptNoSkips.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.1 - Susceptibility no skips on 50x50 dataset</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/susceptSkips.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.2 - Susceptibility w/20 skips on 50x50 dataset</figcaption>
+</figure>
+</div>
+<p>Makes data noisier, worsening issue.</p>
+<p>Have implemented “add data” method to dataset. Will hopefully allow me to append data and improve results.</p>
+<p>Testing on the 20x20 dataset, adding 200 simulation steps results follow:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/magBeforeSim.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.3 - magnetisation before additional steps (20x20 dataset)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/susBeforeSim.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.4 - Susceptibility before additional steps (20x20 dataset)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/magAfterSim.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.5 - magnetisation after additional steps (20x20 dataset)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/susAfterSim.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.6 - Susceptibility after additional steps (20x20 dataset)</figcaption>
+</figure>
+</div>
+<p>Qualitatively this seems to improve the noise particularly in the susceptibility. Furthermore the magnetisation exponent <span class="math inline">\(\beta\)</span> has seemingly improved slightly from <span class="math inline">\(\beta=0.066\)</span> to <span class="math inline">\(\beta=0.079\)</span>. I suspect that this will be the main source of error for most of the exponent data; more data required.</p>
+<p>Have also implemented purpose built 2D, 3D and 4D mcMove method to main config; should be faster for those cases; seems faster thus far for 2D case.</p>
+</section>
+<section id="plan-from-this-point" class="level3">
+<h3 class="anchored" data-anchor-id="plan-from-this-point">Plan from this point:</h3>
+<ul>
+<li>extend main datasets over longer sweeps; see what the effect of this is</li>
+<li>if this fixes the current issues (particularly noisy susceptibility); then can take main results</li>
+<li>else may need to look at autocorrelation times</li>
+</ul>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

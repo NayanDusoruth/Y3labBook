@@ -1,0 +1,132 @@
+# Wk 5
+
+## 19/02/2026
+
+### Task list for today:
+
+* standardise curtailement in exponent method (have it as optional DT parameter) [x]
+* implement other critical exponent methods [x]
+	* this includes slightly reworking graphing method to accomodate this [x]
+	* maybe also setup return report system to make testing easier [x]
+* evaluate critical exponents relative to each other (scaling laws)
+	* ask Dr Turci if he knows why i may be getting these underestimates
+		* need to more carefully examine finite size effects because model sizes are relatively small
+* reevaluate cumulant critical temp method [x]
+	* only evaluate neighbouring sizes; they should converge [x]
+* potentially write up power law critical temp method; compare critical temps [x]
+
+
+### Log:
+tidied up exponent fitting method w/reportString and curtailement built in
+Reworked cumulant temp method; the critical temp should converge to the critical temp for larger and larger models; so currently picking largest value, although performing a fit and extrapolating would be a better approach in future. This works quite well atm though.
+
+note; curtailing the cumulant fit slightly (curtailing the lower end of the data) seems to improve the fit and improves the critical temperatures
+
+Fiddling around with parameters; curtailing data helps magnetisation and heat capacity fit, but not susceptibility which is odd.
+
+Going to implement power law critical temp method as this also produces estimate for critical exponents
+
+
+a factor of 2 is showing up a lot comparing expected vs actual values... this is suspicious 
+
+
+implementing power law method seems to imply $T_{c}=2.45$ which is wrong; matches closely to apparent critical temperature.
+
+
+### power law method:
+Power law method acknolwedges finite size effect with:
+
+$(\beta(\infty) - \beta(V))^{-v}\propto L$ / / / / / / / / / / / Eq 4.1 
+
+Which yields:
+
+$\beta(v) = \beta_{c}-c_{1}L^{\frac{-1}{v}}$ / / / / / / / / / / / Eq 4.2
+
+Which can be fit to the apparent critical temperatures derived from max susceptibility.
+
+Susceptibility thus relates to size as:
+
+$\chi_{max} \propto L^{\frac{\gamma}{v}}$ / / / / / / / / / / / Eq 4.3
+
+which can be fitted, and $\gamma$ extracted.
+
+### log continued
+
+Implementing the above, and excluding the 50x50 dataset (it seems to be off, will examine for outliers), $v= 0.91$ can be found (inc the 50x50 dataset yields $v=0.45$). These two cases yield $\gamma=0.44$ and $\gamma =0.22$. The fact that the 50x50 dataset seems off is frustrating...
+
+
+Refactor code to be a bit cleaner; unsure if the above power law method works fully; given it's critical temp disagrees more significantly with standard values than the cumulant method, i'm hesitant to trust it.
+
+
+### summary of issues at present
+Currently unsure where to go from here...
+There is some data issue with the 50x50 dataset, in order to evaluate finite size effects more data over a range of sizes is needed; however that is currently being generated. As such, i'm unsure how to examine my present data.
+
+The current deviations from standard values generally are:
+* $\beta \approx 0.07$ is less than standard value $\beta = 0.125$
+* $\gamma \approx 0.45$ is significantly less than standard value $\gamma = 1.75$
+* $\alpha \approx 0.27$ is significantly greater than stadard value of $\alpha = 0$
+
+
+The critical temperature values from the cumulant ($T_{c}=2.229$) vs power law method ($T_{c}=2.451$) disagree significantly, with the cumulant method closer to the standard value of $T_{c}=2.269$. However the power law method is significantly limited by the small amount of data available to it, so this may improve in future.
+
+Presently the power law method provides a reasonable estimate of $v=0.9$ (standard value of 1) if the 50x50 dataset is excluded.
+However the power law method does not provide a good estimate of $\gamma=0.44$ if the 50x50 dataset is excluded. This is however somewhat consistent with the direct fit methods, which implies that whatever issue is causing these effects are present in both datasets.
+
+That alongside the fact that the direct fit method seems to fit relatively well (given R^2 values are generally $R^{2}_{\beta}\approx 0.96$, $R^{2}_{\gamma}\approx 0.69$, $R^{2}_{\alpha}\approx 0.50$) suggests that this isn't an issue with the analysis, but an issue with the data.
+
+Some possibilities may explain this:
+* incorrect dynamics - some aspect of the simulation is incorrectly implemented
+* incorrect observable computation - the observables (I.E, susceptibility) aren't correctly computed
+* some additional finite size effect hasn't been accounted for
+
+
+
+Dr Turci advice:
+* potential optimisation; hardcode 2d, 3d mc sweep
+* power fit as log instead of as is
+* correlated data may be main issue; run data for longer esp near criticality (may be worth computing autocorrelation)
+	* sample "sparse" for susceptibility 
+
+
+### Plan of action given this insight:
+* switch exponent fit to log fit - this may address some of my exponent issues
+* try sampling susceptibility on sparser data; see if that improves "noisiness" in data
+	* potentially compute autocorrelation length on data to quantify results
+* extend data over longer MC sweeps
+	* this may require purpose built optimisation
+
+
+### log continued:
+attempted exponent fit w/log fit; improves results slightly for magnetisation
+
+Quickly attempted to sample every 20th data point for susceptibility to try and reduce correlations; this yields:
+
+![Fig 5.1 - Susceptibility no skips on 50x50 dataset](figures/susceptNoSkips.png){fig-align="left"}
+
+![Fig 5.2 - Susceptibility w/20 skips on 50x50 dataset](figures/susceptSkips.png){fig-align="left"}
+
+Makes data noisier, worsening issue.
+
+Have implemented "add data" method to dataset. Will hopefully allow me to append data and improve results.
+
+Testing on the 20x20 dataset, adding 200 simulation steps results follow:
+
+![Fig 5.3 - magnetisation before additional steps (20x20 dataset)](figures/magBeforeSim.png){fig-align="left"}
+
+![Fig 5.4 - Susceptibility before additional steps (20x20 dataset)](figures/susBeforeSim.png){fig-align="left"}
+
+![Fig 5.5 - magnetisation after additional steps (20x20 dataset)](figures/magAfterSim.png){fig-align="left"}
+
+![Fig 5.6 - Susceptibility after additional steps (20x20 dataset)](figures/susAfterSim.png){fig-align="left"}
+
+Qualitatively this seems to improve the noise particularly in the susceptibility. Furthermore the magnetisation exponent $\beta$ has seemingly improved slightly from $\beta=0.066$ to $\beta=0.079$.
+I suspect that this will be the main source of error for most of the exponent data; more data required.
+
+Have also implemented purpose built 2D, 3D and 4D mcMove method to main config; should be faster for those cases; seems faster thus far for 2D case.
+
+
+### Plan from this point:
+* extend main datasets over longer sweeps; see what the effect of this is 
+* if this fixes the current issues (particularly noisy susceptibility); then can take main results 
+* else may need to look at autocorrelation times
