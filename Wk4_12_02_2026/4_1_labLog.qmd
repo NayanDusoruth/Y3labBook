@@ -27,6 +27,7 @@ scaling effect on critical exponent is result of "incorrect" apparent critical t
 
 
 To do list:
+
 * fix averaging
 * fix exponent fitting
 * figure out apparent vs true critical temp stuff
@@ -41,13 +42,12 @@ Averaging seems to fix it
 	* can find critical point by comparing $U_{l}(\beta)$ curves for different sizes; there should be an intersection point
 
 have implemented cumulative computation; seems to work quite well, but will need to fit cumulative distribution to plot to be able to estimate data
-
-
 * fixed cumulative fit
 * however am encountering computational issues; as far as i can tell binder cumulant should range 
 
 
 quick catchup w/Turci
+
 * make sure to double check magnetisation over range
 
 I am a complete idiot; it seems that when the code was discarding the configs for equilibration steps, it wasn't updating the most recent config.
@@ -63,6 +63,7 @@ Therefore trying to fix critical exponent fitting.
 Successfully implemented multithreading at the dataset object; it generates configurations in parallel; so this should accelerate dataset generation by up to a factor of 16 (currently allocating 8 threads, so should be 8x faster)
 
 General to do list:
+
 * generate data
 * fix exponent fitting
 * fully implement binder cumulate intersection function
@@ -82,6 +83,7 @@ General to do list:
 
 
 unrelated thoughts; vague report structure:
+
 * introduction
 	* basic motivation
 	* ising model theory
@@ -108,6 +110,7 @@ unrelated thoughts; vague report structure:
 * conclusion
 
 will need citations for following (try and get different ones for each):
+
 * statement of ising model
 * computation for basic observables
 * phase transition and critical exponents
@@ -229,6 +232,7 @@ Which is an improvement, but doesn't yet agree with standard values.
 Furthermore whilst these values generally agree with one another, it is important to note how small the uncertainties are. Part of this is likely due to the fact that currently the use of scipy.curvefit doesn't include the errors in the data. This is due to there still being fitting issues when trying to incorporate the error values, but does obfuscate errors in these "final" exponent values. Particularly errors increase approaching criticality, so these may being hiding significantly larger errors that would bring.
 
 However given these results, its worth considering the following:
+
 * Critical temperature computation - it seems to be an underestimate; why?
 	* it may be worth crossvalidating the cumulant method against the power law method
 * how to incorporate errors into the curvefit
@@ -250,6 +254,7 @@ Similarly curtailing the first 6 temperatures, and setting $T_{c}=2.33$ yields $
 
 
 To do list:
+
 * potentially implement other exponent fits; see if they:
 	* have similar issues
 	* if the scaling relations hold
@@ -269,6 +274,7 @@ quickly implemented other exponent fitting methods for susceptibility and heat c
 doing quick non rigorous tests on the 50x50 dataset yield $\beta=0.072$, $\gamma=0.32$, $\alpha=0.55$ compared to standard values of $\beta=0.125$, $\gamma=1.75$, $\alpha=0$. Something is going wrong here, however the fit seems to be working...
 Sidenote, the scaling relation $\alpha + 2\beta + \gamma = 2$ doesn't work, instead yielding $\alpha + 2\beta + \gamma = 1$
 First port of call will be to rigorously check these values for different critical temperatures (50x50 dataset):
+
 * standard value of 2.269
 	* $beta = 0.073 \pm 0.003$
 	* $\gamma = 0.32 \pm 0.07$
@@ -289,6 +295,7 @@ What is striking is the heat capacity exponent $\alpha$ being so large in most c
 
 
 task list for tmr:
+
 * standardise curtailement in exponent method (have it as optional DT parameter)
 * implement other critical exponent methods
 	* this includes slightly reworking graphing method to accomodate this

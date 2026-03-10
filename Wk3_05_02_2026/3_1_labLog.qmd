@@ -44,6 +44,7 @@ This has made the phase transition a lot clearer; in ($d=2$, $L=20$) appears to 
 
 
 ### To do list:
+
 * implemenet variable equilibration steps into dataset (so can pass in either float, or array of equilibration values) (done)
 * normalise observables 
 * Figure out way to compute critical $\beta_{c}$ from data
@@ -136,6 +137,7 @@ Don't think these work fully. actually unsure if i should used weighted average;
 All of these tests have been conducted on a single dataset (saved for convenience) - it may be worth testing on a larger, more fine grain dataset.
 
 #### To Do list:
+
 * fix susceptibility and heat capacity computations
 * run big dataset; see if that fixes
 * figure out exponent fitting
