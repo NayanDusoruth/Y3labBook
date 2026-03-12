@@ -1,8 +1,9 @@
-# Wk 2.2 Additional reading
+# Wk 2 Additional reading
 
 ## Foreword:
-During Wk1 I worked on the code basics for the simulatio whilst my lab partner Scarlett produced a robust literature review on the topic.
+During Wk1 I worked on the code basics for the simulation whilst my lab partner Scarlett produced a robust literature review on the topic.
 This page is intended to summarise and notate the findings of that and similar readings.
+This review relied on [@ClusterLink1][@ClusterLink2][@ClusterLink3][@ClusterLink4[@ClusterDombAndStolS][@ClusterLink6]
 
 
 ## Cluster theoretical overview (overview provided by Scarlett, rewritten here for convenience)
@@ -41,7 +42,7 @@ $z(n) \approx \frac{1}{n^{2+\frac{1}{\delta}}}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
 $\delta = $ critical exponent of magnetisation-field response (2D case has $\delta = 15$)
 
 ### Cluster shape:
-It is useful to define a "cyclomatic number" for any cluster \cite{ClusterDombAndStolS}:
+It is useful to define a "cyclomatic number" for any cluster [@ClusterDombAndStolS]:
 
 $c=l-n+1$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  Eq 2.6 cyclomatic number
 $n = $ number of spins in a cluster
@@ -85,20 +86,20 @@ $<s_{i}s_{j}>=P(i<->j)$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  Eq 2.12 spin correla
 ## Critical exponents papers:
 Scarlett found 4 Critical exponent related papers which i need to go through and summarise.
 
-### CritExpLink1
+### CritExpLink1 [@CritExpLink1]
 #### Initial impressions:
 
 * computed crit exp $\alpha, \beta, \gamma$ for 3D IM
 * trained deep learning alg on IM results to reduce necessary information of system
 
-### CritExpLink2
+### CritExpLink2 [@CritExpLink2]
 #### Initial impressions:
 
 * Calculated critical exponents on "fractal lattice" w/$d=1.792$
 * used "higher order tensor renormalisation" to compute this
 
 
-### CritExpLink3
+### CritExpLink3 [@CritExpLink3]
 #### Initial impressions:
 
 * found crit exp for correlation length, specific heat, susceptibility, disconected susceptibility, magnetisation
@@ -113,7 +114,7 @@ The replica models were used to decide when a model had equilibrated by comparin
 Each sample/replica measured:
 
 * $<M> =$ average magnetisation
-* $ <M^2>$
+* $<M^2>$
 * $<E> =$ average energy
 * $<E^2>$
 
@@ -124,7 +125,7 @@ $C_{ave} = N\frac{(<E^2> - <E>^2)}{T^2}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  Eq 
 $m_{ave}=|<M>|$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  Eq 2.14 Average magnetisation
 
 $\chi_{ave} = N\frac{(<M^2> - <M>^2)}{T}$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  Eq 2.15 Average susceptibility
-ee
+
 $\chi_{dis} = N<M>^2$\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  Eq 2.16
 
 Which relate to their critical exponents as:
@@ -164,7 +165,7 @@ The paper then discusses these exponents in a wider context that i'm not fully v
 
 
 
-### CritExpLink4
+### CritExpLink4 [@CritExpLink4]
 #### Initial impressions:
 
 * explanation of mean field theory approx

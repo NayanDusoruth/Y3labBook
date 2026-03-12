@@ -1,4 +1,7 @@
-# Wk 6
+# Wk 6 Lab log
+##Wk 6 summary
+This week finally fixed the issues with susceptibility. Therefore was able to refine analysis to a more final state. 
+## general to do list
 At present time most of the methods generally work, but need significant amount of equilibration time to work. 3D data is currently being generated, and am fiddling a bit with the 2D data to produce the cleanest results.
 
 Main to do list at present:
@@ -20,7 +23,7 @@ Main to do list at present:
 	* cleanup lab book
 
 
-log:
+## Lab log 26/02/2026:
 
 * attempted sparser data for susceptibility; makes exponent worse
 * am attempting sampling "later data" allowing more equilibration - makes the data worse (unsuprising as it reduces the statistics)
@@ -35,8 +38,9 @@ log:
 	* am also combining this with sparser data
 	* this seems to be  working; however the later data i use, the less data i have to work with 
 
+Talked to Dr Turci, he suggests:
 
-* plot susceptibility over time series; Dr Turci suggests
+* plot susceptibility over time series
 * variances of magnetisation and energy look comparable in terms of behaviour
 * maybe try subdividing susceptibility data and taking the mean? may help? 
 	* THIS MAY BE FIXING THINGS - its making a much smoother
@@ -74,7 +78,8 @@ to
 May however need to double check power law fit cause something seems off.
 Power law method for $T_{c}$ seems off; need to reexamine. Have checked it; found issue, initial guess for exponent was positive when it should be negative.
 
-citations needed:
+
+Thinking of report citations needed:
 
 * General statement of ising model, model hamiltonian and observables (complexity and criticality textbook)
 * statement of critical power laws (scaling and renormalisation in statistical physics textbook)
@@ -87,7 +92,7 @@ citations needed:
 
 
 
-## To do list:
+### To do list:
 
 * final analytical/code tasks
 	* settle on standard analytical method (blocksize, data, critical temp method, assumptions...) to generate "standard results"

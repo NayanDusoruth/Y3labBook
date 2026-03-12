@@ -1,6 +1,11 @@
 ---
-title: "labBook"
+title: "Y3 labs labbook"
 author: "Nayan Dusoruth"
 ---
 
-This is a digital lab book for Y3 lab module produced using quarto.
+This is a digital lab book for the Y3 lab module produced using quarto.
+It contains three sections:
+
+* Pre lab work: General preparation in advance of main labs
+* Main lab log: A log taken over the course of the main 6Wks in labs
+* Post lab work: A log taken after the main 6Wks in labs 

@@ -1,6 +1,7 @@
-# Wk 4
-
-## 12/02/2026 lab log
+# Wk 4 Lab log
+## Wk4 summary
+This week involved attempts at directly fitting for the critical exponents with limited success. The main benefit of this week was additional experience with this sort of data.
+## Lab log 12/02/2026
 
 Have generated the following datasets over the past week:
 
@@ -36,17 +37,19 @@ To do list:
 Averaging seems to fix it
 
 
-2 methods to find "true" critical temperature (cite{labMaterials} finite-size-effects):
+2 methods to find "true" critical temperature (using bb lab materials finite-size-effects):
+
 * fit apparent critical temperatures for different sizes using $\beta_{max} = \beta_{c} - c\cdot L^{\frac{-1}{v}}$
 * Binder cumulant; $U_{l}=\frac{1 - <s^{4}>}{3<s^{2}>^{2}}$; for $T_{c} < T$, $U_{l} = 0 + O(1/V)$, for $T_{c} > T$, $U_{l} = /frac{2}{3} + O(1/V)$; at criticallity, $U_{l}$ trends towards constant
 	* can find critical point by comparing $U_{l}(\beta)$ curves for different sizes; there should be an intersection point
 
-have implemented cumulative computation; seems to work quite well, but will need to fit cumulative distribution to plot to be able to estimate data
+*  have implemented cumulative computation; seems to work quite well, but will need to fit cumulative distribution to plot to be able to estimate data
+
 * fixed cumulative fit
 * however am encountering computational issues; as far as i can tell binder cumulant should range 
 
 
-quick catchup w/Turci
+quick catchup w/Dr Turci
 
 * make sure to double check magnetisation over range
 
@@ -72,14 +75,6 @@ General to do list:
 * generate "final" data 
 * if time allows, compute critical exponents for mean field theory model (alternatively just cite values)
 * write report
-
-
-
-
-
-
-
-
 
 
 unrelated thoughts; vague report structure:
@@ -114,18 +109,15 @@ will need citations for following (try and get different ones for each):
 * statement of ising model
 * computation for basic observables
 * phase transition and critical exponents
-
 * binder cumulant theory
 * mean field theory derivation OR results
 * literature values for critical exponents
-
 * metropolis MC algorithm
-
 * probably general textbook (complexityAndCriticality may be good)
 
 
 
-## 14/02/2026
+## Lab log 14/02/2026
 Am regenerating the broken data from the past week
 
 * 1000 equilibration steps, 500 simulation steps:
@@ -176,7 +168,7 @@ Once that is working, the "analytical machinery" for this project should be comp
 
 
 
-## 15/02/2026
+## Lab log 15/02/2026
 
 minor tweaking; have added system s.t the dataset orders its data in ascending temperature order; makes handling data easier.
 
@@ -186,7 +178,7 @@ Have managed to normalise cumulant and implement a cumulant critical temperature
 
 ![Fig 4.8 - Cumulant fits for $s\in[20, 30, 40, 50]$](figures/cumulantIntersection.png){fig-align="left"}
 
-Note that the plot yields 2 intersection clusters, however the higher temperature cluster better agrees with the data, so was accepted as the true values. As such Fig. 4.8 yields $T_{c} = 2.16 \pm 0.02 º/k_{b}$; which seems reasonable examining all the plots. (however doesn't agree with standard values of $T_{c}=2.269$ cite{labMaterials})
+Note that the plot yields 2 intersection clusters, however the higher temperature cluster better agrees with the data, so was accepted as the true values. As such Fig. 4.8 yields $T_{c} = 2.16 \pm 0.02 º/k_{b}$; which seems reasonable examining all the plots. (however doesn't agree with standard values of $T_{c}=2.269$ (bb lab materials))
 
 Have quickly implemented a "set critical temperature" functionality to dataset objects; that way the cumulant critical temperature can be assigned to all datasets being evaluated.
 
@@ -202,7 +194,7 @@ I think solving this may be a tmr problem.
 attempted to simply compute an initial estimate of the exponent; given $M=t^{\beta}$ it follows that $lnM = \beta lnt$ so $\beta = \frac{lnM}{lnt}$. THis wasn't expected to produce correct results, however was hoped would provide an initial guess for curvefit to work. It unfortunately doesn't
 
 
-## 16/02/2026
+## Lab log 16/02/2026
 am experimenting with scipy curvefit on some idealised power law data; it seems to work in this idealised case
 
 After some debugging, it seems the power law fit was working, but was significantly "tech indebted" so wasn't working due to messy code.
@@ -211,7 +203,7 @@ On the 50x50 dataset, fitting $M = b \cdot (\frac{T-T_{c}}{T_{c}})^{\beta}$ yiel
 
 ![Fig 4.8 - Initial magnetisation exponent fit attempt on 50x50 dataset](figures/magExponentFit.png){fig-align="left"}
 
-Which yielded $b= 1.022 \pm 0.006$ and $\beta= 0.038 \pm 0.002$. Given that the standard value for $\beta=\frac{1}{8}$ cite{labMaterials}, it seems the measured value is off by a factor of $~3$.
+Which yielded $b= 1.022 \pm 0.006$ and $\beta= 0.038 \pm 0.002$. Given that the standard value for $\beta=\frac{1}{8}$ (bb lab materials), it seems the measured value is off by a factor of $~3$.
 
 Testing the other datasets yields:
 
@@ -221,7 +213,7 @@ Testing the other datasets yields:
 * 50x50: $\beta= 0.038 \pm 0.002$
 
 Which is odd; all of these results are in significant agreement with each other, but not with standard values.
-It was established the 15/02/2026 that the cumulant derived $T_{c}$ is reasonable upon first inspection, but doesn't agree with standard values. Setting the critical temperature to standard value of $T_{c}=2.269$ cite{labMaterials} instead yields:
+It was established the 15/02/2026 that the cumulant derived $T_{c}$ is reasonable upon first inspection, but doesn't agree with standard values. Setting the critical temperature to standard value of $T_{c}=2.269$ (bb lab materials) instead yields:
 
 * 20x20: $\beta= 0.66 \pm 0.004$
 * 30x30: $\beta= 0.072 \pm 0.004$
@@ -266,7 +258,7 @@ To do list:
 
 
 
-## 18/02/2026
+## Lab log 18/02/2026
 Note to self; multithreading is weird; despite interrupting the code, the threads are still running (and have done for several days); they've been generating data in the background without me noticing for several days now...
 
 

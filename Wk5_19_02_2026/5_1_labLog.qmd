@@ -1,6 +1,9 @@
-# Wk 5
+# Wk 5 Lab log
+##Wk 5 summary
+This week involved attempting the power law fit methods, and significant amounts of debugging and crossvalidation with the cumulant and direct fit methods.
+Furthermore early attempts at more refined peak finding methods were implemented. 
 
-## 19/02/2026
+## Lab log 19/02/2026
 
 ### Task list for today:
 
@@ -16,7 +19,7 @@
 * potentially write up power law critical temp method; compare critical temps [x]
 
 
-### Log:
+### general log:
 tidied up exponent fitting method w/reportString and curtailement built in
 Reworked cumulant temp method; the critical temp should converge to the critical temp for larger and larger models; so currently picking largest value, although performing a fit and extrapolating would be a better approach in future. This works quite well atm though.
 
@@ -33,20 +36,20 @@ a factor of 2 is showing up a lot comparing expected vs actual values... this is
 implementing power law method seems to imply $T_{c}=2.45$ which is wrong; matches closely to apparent critical temperature.
 
 
-### power law method:
+### power law method (based off of [@isingScaling]):
 Power law method acknolwedges finite size effect with:
 
-$(\beta(\infty) - \beta(V))^{-v}\propto L$ / / / / / / / / / / / Eq 4.1 
+$(\beta(\infty) - \beta(V))^{-v}\propto L$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  Eq 4.1 
 
 Which yields:
 
-$\beta(v) = \beta_{c}-c_{1}L^{\frac{-1}{v}}$ / / / / / / / / / / / Eq 4.2
+$\beta(v) = \beta_{c}-c_{1}L^{\frac{-1}{v}}$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  Eq 4.2
 
 Which can be fit to the apparent critical temperatures derived from max susceptibility.
 
 Susceptibility thus relates to size as:
 
-$\chi_{max} \propto L^{\frac{\gamma}{v}}$ / / / / / / / / / / / Eq 4.3
+$\chi_{max} \propto L^{\frac{\gamma}{v}}$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  Eq 4.3
 
 which can be fitted, and $\gamma$ extracted.
 
@@ -63,6 +66,7 @@ Currently unsure where to go from here...
 There is some data issue with the 50x50 dataset, in order to evaluate finite size effects more data over a range of sizes is needed; however that is currently being generated. As such, i'm unsure how to examine my present data.
 
 The current deviations from standard values generally are:
+
 * $\beta \approx 0.07$ is less than standard value $\beta = 0.125$
 * $\gamma \approx 0.45$ is significantly less than standard value $\gamma = 1.75$
 * $\alpha \approx 0.27$ is significantly greater than stadard value of $\alpha = 0$
@@ -76,13 +80,15 @@ However the power law method does not provide a good estimate of $\gamma=0.44$ i
 That alongside the fact that the direct fit method seems to fit relatively well (given R^2 values are generally $R^{2}_{\beta}\approx 0.96$, $R^{2}_{\gamma}\approx 0.69$, $R^{2}_{\alpha}\approx 0.50$) suggests that this isn't an issue with the analysis, but an issue with the data.
 
 Some possibilities may explain this:
+
 * incorrect dynamics - some aspect of the simulation is incorrectly implemented
 * incorrect observable computation - the observables (I.E, susceptibility) aren't correctly computed
 * some additional finite size effect hasn't been accounted for
 
 
 
-Dr Turci advice:
+Talked to Dr Turci for advice:
+
 * potential optimisation; hardcode 2d, 3d mc sweep
 * power fit as log instead of as is
 * correlated data may be main issue; run data for longer esp near criticality (may be worth computing autocorrelation)
@@ -97,7 +103,7 @@ Dr Turci advice:
 	* this may require purpose built optimisation
 
 
-### log continued:
+### general log continued:
 attempted exponent fit w/log fit; improves results slightly for magnetisation
 
 Quickly attempted to sample every 20th data point for susceptibility to try and reduce correlations; this yields:
@@ -128,6 +134,7 @@ Have also implemented purpose built 2D, 3D and 4D mcMove method to main config; 
 
 
 ### Plan from this point:
+
 * extend main datasets over longer sweeps; see what the effect of this is 
 * may need to adjust cumulant computation - it doesn't look like a logistic function anymore
 * if this fixes the current issues (particularly noisy susceptibility); then can take main results 
@@ -135,7 +142,7 @@ Have also implemented purpose built 2D, 3D and 4D mcMove method to main config; 
 
 
 
-## 20/02/2026
+## lab log 20/02/2026
 Initial examination of the extended datasets seems to indicate significant improvement in noise, however the direct fit methods for critical exponents continue to fail.
 As such, the task list may follow:
 
@@ -158,7 +165,7 @@ As such, the task list may follow:
 		* clean up lab book for submission
 
 
-## 21/02/2026
+## Lab log 21/02/2026
 An issue being encountered is there is still SIGNIFICANT noise in the susceptibility values:
 
 ![Fig 5.7 - Susceptibilities over $\beta$](figures/susceptibilitiesOverBeta.png){fig-align="left"}
@@ -168,6 +175,7 @@ In order to verify this idea (that the issue is the data and not the method); sy
 This seems to produce reasonable results, thus it is likely the issue is purely one of data.
 
 From this point there are a few potential things worth considering:
+
 * compute autocorrelations; this may yield some insight into the noise
 * Brute force compute more data - this should reduce the noise further (note, saving the configs for sim steps is probably unecessary and expensive atp; can remove to speed up computation)
 * perhaps for max susceptibility; take average of 3 largest values instead of largest value; may help with criticality sensitive noise
@@ -191,7 +199,7 @@ Also note how there appears to be an apparent peak at $\chi\approx30$ - this may
 
 With more data and taking a mean around the critical point instead of directly at the critical point; (and setting $T_{c}=2.269$) am starting to get reasonable values for some of the critical exponents by power law method ($\beta= 0.13 \pm 0.06$, and $\gamma=1.7 \pm 1.2$). There is evidently still significant noise, however it is clear that this brute force approach will yield correct results.
 
-##22/02/2026
+## Lab log 22/02/2026
 
 Manually filtered out apparent outliers from susceptibility to see if that improves results to get an idea of how badly noise is affecting data
 Heat capacity peaks are a lot clearer and less noisy than susceptibility.
@@ -200,7 +208,7 @@ General experimentation; $\beta$ power law fit seemingly working alright; $\gamm
 
 
 
-to do:
+### to do list:
 
 * fix exponents
 	* other susceptibility peak finding methods?
@@ -216,6 +224,6 @@ May need to work a bit more on the critical temp methods...
 
 
 
-## 23/02/2026
+## Lab log 23/02/2026
 have implemented a more general "find maximum" method in dataset; is meant to be a wrapper for different peak finding methods.
-Currently has a direct (largest value in observable array) and an "interpolate" method. THe interpolate method finds the direct maximum, then draws 2 straight lines from the 4 closest points (left hand and right hand side of point); then finds their intersection. THe idea of this is to try and incorporate more information into the maximum estimate. Particularly for susceptibility, this method is expected to reduce noise due to being near criticality and incorporate information from more points. Also included a center of mass method which computes $T_{max} = \frac{1}{\sum O} \sum O\cdot T$ for observable O; should produce 
+Currently has a direct (largest value in observable array) and an "interpolate" method. The interpolate method finds the direct maximum, then draws 2 straight lines from the 4 closest points (left hand and right hand side of point); then finds their intersection. THe idea of this is to try and incorporate more information into the maximum estimate. Particularly for susceptibility, this method is expected to reduce noise due to being near criticality and incorporate information from more points. Also included a center of mass method which computes $T_{max} = \frac{1}{\sum O} \sum O\cdot T$ for observable O; should produce the peak if the data is symetric about the critical temperature.

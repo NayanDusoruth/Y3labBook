@@ -36,15 +36,13 @@
 	* render as pdf
 	
 
-## log:
-
-### 01/03/2026
+## Lab log 01/03/2026
 Have also decided to recover scraps of 100x100 data. Its not a full dataset, but should have sufficent detail to provide another datapoint to the 2D data. Currently refining the data by running more MC steps about the critical point.
 
 Am still waiting on 3D data to generate.
 
 
-### 02/03/2026
+## Lab log 02/03/2026
 Have implemented a "wipeData" method - currently the config objects have a lot of saved states - this takes up a lot of storage space. Implemented this method to wipe all but that last state from the memory to save storage space and speed up load times.
 
 This has reduced stored data significantly and speeds up load times. Not necessary, but convenient.
@@ -61,30 +59,30 @@ May need to combine the susceptibility and power law fit into one graph.
 Setting the 2D and 3D plots side by side may make the plots too small to see, so trying to compress more information into a single plot may be advisable. 
 
 
-### 03/03/2026
+## Lab log 03/03/2026
 More plot tweaking.
 Combined all susceptibilities and power law critical temp fit into one plot (subplotted). This works quite well, so instead of subplotting 2D, and 3D data it may be better to subplot combine the existing plots together.
 
 For instance, the three fits for $\beta, \gamma, \alpha$ could be combined into one subplot which share an x axis? This may help compact plot information. Potentially only combine the $\beta, \gamma$ ones - heat capacity to be shown seperatedly; the fit for heat capacity is poor so doesn't reveal a lot of information. Worth showing an exemplar to justify not showing it again.
 
 
-###05/03/2026
-Fiddling with analytical specifics (mostly the time block and RMS mag mean radius). Refining the time block improves the $T_{c}$ estimate; which has a knock on effect on the $\beta$ estimate. have also streamlined the data generation-> latex report doc pipeline; it now autofills the final results into the report. it writes the results as latex commands of form \newcommand{\value}{\value \pm dev} to a seperate .tex doc which is imported by the report file. That way results can be quited as \value, and it will autoupdate every time the main analytical code is run.
+## Lab log 05/03/2026
+Fiddling with analytical specifics (mostly the time block and RMS mag mean radius). Refining the time block improves the $T_{c}$ estimate; which has a knock on effect on the $\beta$ estimate. have also streamlined the data generation-> latex report doc pipeline; it now autofills the final results into the report. it writes the results as latex commands of form /newcommand{/value}{/value /pm dev} to a seperate .tex doc which is imported by the report file. That way results can be quoted as /value, and it will autoupdate every time the main analytical code is run.
 
 
-### 06.03/2026
+## Lab log 06/03/2026
 note to self; beta parameter is very sensitive to critical temperature were its evaluated; so small deviations in T_c have large effects in beta.
 
 
 Writing note to self: need to do a proofreading sweep checking notational consistency; particularly the difference between $\beta$ and $\beta_{m}$
 
 
-### 07/03/2026
+## Lab log 07/03/2026
 Note to self; adjusting the apparent critical temperature by the ratio of $\frac{n_{spins}}{n_{connections}}$ where $n_{connections}$ are all the connections between cells as:
 
 $n_{connections d=2}=(l-2)^{2}\cdot4+(l-2)\cdot4\cdot3+4\cdot2$ Eq. 7.1
 
-$n_{connections d=3}=(l-3)^{3}\cdot6+8\cdot(l-2)^{2}\cdot5+8(l-2)\cdot2+8\cdot3$  Eq. 7.2
+$n_{connections d=3}=(l-2)^{3}\cdot6+6\cdot(l-2)^{2}\cdot5+8(l-2)\cdot2+8\cdot3$  Eq. 7.2
 
 So scaling the apparent critical temperatures as 
 
@@ -104,10 +102,26 @@ I think i can justify it somewhat within an exploration of the extreme finite si
 
 ![Fig 7.3 - 3D data critical temperature fit w/ adjustment ($T_{c}=3.116 \pm 0.001$, $R^{2}=0.9294$)](figures/afterAdjust.png){fig-align="left"}
 
-Not going to include it in the report; its interesting but doesn't fit well and i'm unsure how to address these points...
+Have included these points in report in order to substantiate finite size effects (and have been able to produce better results than above)
 
+![Fig 7.4 - Improved adjusted data w/$T_{c}=3/78\pm0.01$ w/$R^{2}=0.9796$ exc $L=20$ datapoint due to it being an evident outlier](figures/3DcritTempPowerLawFitAdjusted.png){fig-align="left"}
 
-### 08/03/2026
-Note to self; may be worth showing model exemplars below, above and at critical temperature.
+This seems to indicate that finite size effects significantly account for the underestimated 3D critical temperature. However the validity of this correction is unclear. Furthermore even if it is valid, how to apply it to the raw observables to correct the critical exponents is also unclear.
 
-### 09/03/2026
+As such its currently mostly a suggestive piece of evidence towards the inaccuracies in the 3D results being due to extreme finite size effects.
+
+## Lab log 08/03/2026
+Note to self; may be worth showing example model configurations below, above and at critical temperature in the report. May help visualise/conceptualise what the phase transitions physically means/looks like.
+
+## Lab log 09/03/2026
+Have a "submission ready" report .draft done
+
+## Lab log 10/03/2026
+Have asked some friends to proofread my complete draft; have spent some time cleaning up lab book. 
+Task list from here on out:
+
+* final proofreads of report
+* proofread lab book
+* Transfer the full lab book bibliography from the spreadsheet to the quarto notebook.
+* republish quarto notebook in "final" state
+* render as complete pdf for submission

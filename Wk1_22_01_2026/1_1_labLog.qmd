@@ -1,5 +1,8 @@
-# 1.1 lab session notes
-
+# Wk 1 Lab log
+## Wk1 Summary
+This first session involved basic lab setup and introduction.
+Met w/Dr Turci and lab parter for induction, agreed "plan of action" with lab partner. I setup "code basics" whilst she did a literature review.
+Was able to get reasonably generalised and efficient "base simulation" working.
 
 ## Potential plan (written 21/01/2026):
 
@@ -13,16 +16,15 @@
 Reasoning for this:
 
 * What is needed from code seems fairly clear at this point; need to be able to generate arbitrary configurations simulated to equilibration; need to be able to extract arbitrary observables; need to be able to assemble these into datasets over parameter variation
-* Currently still going through "percolation" chapter \cite{ComplexityAndCriticality} - understanding of theory isn't fully there yet, however understanding of code requirements ~ is - therefore start with what is known, and familiarise self with theory more later
+* Currently still going through "percolation" chapter [@ComplexityAndCriticality] - understanding of theory isn't fully there yet, however understanding of code requirements ~ is - therefore start with what is known, and familiarise self with theory more later
 
 
 ## Lab log (22/01/2026):
 
-Turci introduced us to project:
-* Gave us overview
-
+Dr Turci introduced us to project.
 
 Met up w/lab partner, are trying to figure out project direction and logistical questions:
+
 * Setup shared google drive folder to share materials
 * Setup planning document
 	* General starting aims:
@@ -33,22 +35,24 @@ Met up w/lab partner, are trying to figure out project direction and logistical 
 	* Object oriented config object w/pickle library save/load functionality - given that sims may be computationally intensive, saving results for future reanalysis may save compute time
 	* Decided to use inheritance structure; parent config, and 1D, 2D, 3D, 4D config children - sim steps will look different in different dimensions and may be difficult to generalize - hence inheritance structure
 
-Talked to Turci:
-* Need to figure out when state converges
+Talked to Dr Turci:
 
+* Need to figure out when state converges
 * Setup code refactoring thus far:
 	* Parent config class - has saving/load methods
 	* Setup 2D config as test child case
 
 
 Have setup code in object oriented approach:
-	Abstract config class
-	2D config class
+
+* Abstract config class
+* 2D config class
+
 Have done rudimentary testing
 
 To do list:
-* FIX STATE LIST
 
+* FIX STATE LIST
 * Clean up code
 * Implement higher and lower dimensions classes
 * Read up and figure out critical exponents
@@ -65,7 +69,7 @@ To do list:
 
 
 
-##Lab log (24/01/2026):
+## Lab log (24/01/2026):
 
 * Decided to switch back to original state system for now; ik it works; may need to refactor it later
 * Gonna try and implement numba on 2D case; test everything in 2D, then can expand out to higher dimensions
@@ -127,6 +131,7 @@ Got numba working; doing rudimentary tests to see if it improves performance:
 		* standardTest500: 6.9 s
 
 Numba seems to work; moving onto some architecture changes:
+
 * Current plan is to have inheritance structure w/specific dimension configs hard coded
 * 3 main differences between dimensions:
 		Dimension of array
@@ -144,7 +149,7 @@ FINALLY got the numba stuff working; still needs optimisatin; however everything
 	* Adjacency code - may need to do that once per dimension case? May help reduce computation? Idk
 
 
-## 25/01/2026
+## lab log 25/01/2026
 Quick test; still slow on full battery/restarted laptop; needs optimisation
 
 * spliting adjacency function "getNeighbourIndices" into two:
@@ -166,10 +171,8 @@ Plan:
 * Have adjacency maps passed into Mcmove, and into getNeighbourIndices
 * Combine functionality of getArrayVal into getNeighbours - leave getArrayVal as is for now (may be useful for some general one off computations) but streamline getNeighbours for efficiency as outlined above
 
-* Test
-
 * If need be, maybe combine getNeighbourIndices into getNeighbours - if call between functions is slowing numba down, this is an efficiency gain (at the cost of modularity and legibility)
-	* If need be combine this all into mcMove directly; preffer not to; modular code tends to be more legible, but it may be a worthwhile tradeoff; esp given that this code is the "core" of the simulation, and shouldn't need to be touched once its working properlyi
+	* If need be combine this all into mcMove directly; preffer not to; modular code tends to be more legible, but it may be a worthwhile tradeoff; esp given that this code is the "core" of the simulation, and shouldn't need to be touched once its working properly
 	
 	
 ### Log:
@@ -205,12 +208,12 @@ Plan:
 		* standardTest500: 62.1s
 		* More tweaking (merged editArray into mcMoves)
 		* standardTest500: 33.3s
-		* More tweaking - changes how e^(−cost β)=〖(e〗^(−β))^(cost)  is computed - precomputing 〖(e〗^(−β)) to try and shave some more efficiency
+		* More tweaking - changes how $e^{-cost \beta}=(e^{\beta})^{cost}$ is computed - precomputing $e^{\beta}$ to try and shave some more efficiency
 		* standardTest500: 50s; have reverted change - presumably multiplication and one exp is easier on computer than alternative
 		* Minor testing; commented out "appendConfig(curConfig)" from "runSimulation" - given 500 steps, that gets called a lot; want to quantify how significant a drain it represents
 		* standardTest500: 23.4s
-				□ Does represent a not insigificant improvement
-				□ May be including a "do not save" option to runSimulation - have added - should help w/both run times and file sizes
+			* Does represent a not insigificant improvement
+			* May be including a "do not save" option to runSimulation - have added;  should help w/both run times and file sizes
 
 * Taken a break from optimisation to debug; have gotten it working in 1D case
 * General debugging complete; have quickly tested that 1D, 3D and 4D cases work; they do; have added graphing method to handle 3D case and rearranged graphing code a bit
@@ -225,4 +228,5 @@ Plan:
 
 * Note; incorrect implenentation of code (removing np.flip(currentIndex) operation on line 215) creates an incredibly interesting behaviour which includes:
 	* Symetry along the x/y axis
-3 distinct cluster types; black, white, crosshatched
+	* 3 distinct cluster types; black, white, crosshatched
+	* not relevant to this project, but is interesting

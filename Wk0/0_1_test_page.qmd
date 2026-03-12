@@ -1,6 +1,6 @@
-# 0.0 Test page
+# Wk 0.1 Test page
 
-This page is intended to test oneNote features (I.E, equations, diagrams, tables), and generally decide on "how to lab book" - This page is considered not a part of this lab book and will be removed before submission.
+This page is intended to test quarto features (I.E, equations, diagrams, tables), and generally decide on "how to lab book".
 
 
 Formatting and structure:
