@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>lablog – Y3 Labbook</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bcb4737e8fbcf1e9dfc00b59f8305558.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Wk1_22_01_2026/1_1_labLog.html">Main lab log</a></li><li class="breadcrumb-item"><a href="../Wk5_19_02_2026/5_1_labLog.html">Wk 5 Lab log</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Y3 Labbook</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Pre lab work</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk0/0_0_Wk0_preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 0 Preface</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk0/0_1_test_page.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 0.1 Test page</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk0/0_2_Bibliography.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 0.2 Bibliography</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk0/0_3_Module_and_assignment_specifics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 0.3 Module and assignment specifics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk0/0_4_General_pre_prep_log.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 0.4 General pre-prep log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk0/0_5_background_theory_and_concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 0.5 Background theory and concepts</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Main lab log</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk1_22_01_2026/1_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 1 Lab log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk2_29_01_2026/2_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 2 Lab log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk2_29_01_2026/2_2_additionalReading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 2 Additional Reading</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk3_05_02_2026/3_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 3 Lab log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk3_05_02_2026/3_2_additionalReading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 3 Additional Reading</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk4_12_02_2026/4_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 4 Lab log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk5_19_02_2026/5_1_labLog.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Wk 5 Lab log</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk6_26_02_2026/6_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 6 Lab log</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Post lab work</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Wk7_onwards/7_1_labLog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Wk 7-8 Lab log</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#wk-5-lab-log" id="toc-wk-5-lab-log" class="nav-link active" data-scroll-target="#wk-5-lab-log">Wk 5 Lab log</a>
+  <ul class="collapse">
+  <li><a href="#lab-log-19022026" id="toc-lab-log-19022026" class="nav-link" data-scroll-target="#lab-log-19022026">Lab log 19/02/2026</a>
+  <ul class="collapse">
+  <li><a href="#task-list-for-today" id="toc-task-list-for-today" class="nav-link" data-scroll-target="#task-list-for-today">Task list for today:</a></li>
+  <li><a href="#general-log" id="toc-general-log" class="nav-link" data-scroll-target="#general-log">general log:</a></li>
+  <li><a href="#power-law-method-based-off-of-isingscaling" id="toc-power-law-method-based-off-of-isingscaling" class="nav-link" data-scroll-target="#power-law-method-based-off-of-isingscaling">power law method (based off of <span class="citation" data-cites="isingScaling">(Kadanoff 1966)</span>):</a></li>
+  <li><a href="#log-continued" id="toc-log-continued" class="nav-link" data-scroll-target="#log-continued">log continued</a></li>
+  <li><a href="#summary-of-issues-at-present" id="toc-summary-of-issues-at-present" class="nav-link" data-scroll-target="#summary-of-issues-at-present">summary of issues at present</a></li>
+  <li><a href="#plan-of-action-given-this-insight" id="toc-plan-of-action-given-this-insight" class="nav-link" data-scroll-target="#plan-of-action-given-this-insight">Plan of action given this insight:</a></li>
+  <li><a href="#general-log-continued" id="toc-general-log-continued" class="nav-link" data-scroll-target="#general-log-continued">general log continued:</a></li>
+  <li><a href="#plan-from-this-point" id="toc-plan-from-this-point" class="nav-link" data-scroll-target="#plan-from-this-point">Plan from this point:</a></li>
+  </ul></li>
+  <li><a href="#lab-log-20022026" id="toc-lab-log-20022026" class="nav-link" data-scroll-target="#lab-log-20022026">lab log 20/02/2026</a></li>
+  <li><a href="#lab-log-21022026" id="toc-lab-log-21022026" class="nav-link" data-scroll-target="#lab-log-21022026">Lab log 21/02/2026</a></li>
+  <li><a href="#lab-log-22022026" id="toc-lab-log-22022026" class="nav-link" data-scroll-target="#lab-log-22022026">Lab log 22/02/2026</a>
+  <ul class="collapse">
+  <li><a href="#to-do-list" id="toc-to-do-list" class="nav-link" data-scroll-target="#to-do-list">to do list:</a></li>
+  </ul></li>
+  <li><a href="#lab-log-23022026" id="toc-lab-log-23022026" class="nav-link" data-scroll-target="#lab-log-23022026">Lab log 23/02/2026</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Wk1_22_01_2026/1_1_labLog.html">Main lab log</a></li><li class="breadcrumb-item"><a href="../Wk5_19_02_2026/5_1_labLog.html">Wk 5 Lab log</a></li></ol></nav></header>
+
+
+
+
+<section id="wk-5-lab-log" class="level1">
+<h1>Wk 5 Lab log</h1>
+<p>##Wk 5 summary This week involved attempting the power law fit methods, and significant amounts of debugging and crossvalidation with the cumulant and direct fit methods. Furthermore early attempts at more refined peak finding methods were implemented.</p>
+<section id="lab-log-19022026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-19022026">Lab log 19/02/2026</h2>
+<section id="task-list-for-today" class="level3">
+<h3 class="anchored" data-anchor-id="task-list-for-today">Task list for today:</h3>
+<ul>
+<li>standardise curtailement in exponent method (have it as optional DT parameter) [x]</li>
+<li>implement other critical exponent methods [x]
+<ul>
+<li>this includes slightly reworking graphing method to accomodate this [x]</li>
+<li>maybe also setup return report system to make testing easier [x]</li>
+</ul></li>
+<li>evaluate critical exponents relative to each other (scaling laws)
+<ul>
+<li>ask Dr Turci if he knows why i may be getting these underestimates
+<ul>
+<li>need to more carefully examine finite size effects because model sizes are relatively small</li>
+</ul></li>
+</ul></li>
+<li>reevaluate cumulant critical temp method [x]
+<ul>
+<li>only evaluate neighbouring sizes; they should converge [x]</li>
+</ul></li>
+<li>potentially write up power law critical temp method; compare critical temps [x]</li>
+</ul>
+</section>
+<section id="general-log" class="level3">
+<h3 class="anchored" data-anchor-id="general-log">general log:</h3>
+<p>tidied up exponent fitting method w/reportString and curtailement built in Reworked cumulant temp method; the critical temp should converge to the critical temp for larger and larger models; so currently picking largest value, although performing a fit and extrapolating would be a better approach in future. This works quite well atm though.</p>
+<p>note; curtailing the cumulant fit slightly (curtailing the lower end of the data) seems to improve the fit and improves the critical temperatures</p>
+<p>Fiddling around with parameters; curtailing data helps magnetisation and heat capacity fit, but not susceptibility which is odd.</p>
+<p>Going to implement power law critical temp method as this also produces estimate for critical exponents</p>
+<p>a factor of 2 is showing up a lot comparing expected vs actual values… this is suspicious</p>
+<p>implementing power law method seems to imply <span class="math inline">\(T_{c}=2.45\)</span> which is wrong; matches closely to apparent critical temperature.</p>
+</section>
+<section id="power-law-method-based-off-of-isingscaling" class="level3">
+<h3 class="anchored" data-anchor-id="power-law-method-based-off-of-isingscaling">power law method (based off of <span class="citation" data-cites="isingScaling">(<a href="#ref-isingScaling" role="doc-biblioref">Kadanoff 1966</a>)</span>):</h3>
+<p>Power law method acknolwedges finite size effect with:</p>
+<p><span class="math inline">\((\beta(\infty) - \beta(V))^{-v}\propto L\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq 4.1</p>
+<p>Which yields:</p>
+<p><span class="math inline">\(\beta(v) = \beta_{c}-c_{1}L^{\frac{-1}{v}}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq 4.2</p>
+<p>Which can be fit to the apparent critical temperatures derived from max susceptibility.</p>
+<p>Susceptibility thus relates to size as:</p>
+<p><span class="math inline">\(\chi_{max} \propto L^{\frac{\gamma}{v}}\)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Eq 4.3</p>
+<p>which can be fitted, and <span class="math inline">\(\gamma\)</span> extracted.</p>
+</section>
+<section id="log-continued" class="level3">
+<h3 class="anchored" data-anchor-id="log-continued">log continued</h3>
+<p>Implementing the above, and excluding the 50x50 dataset (it seems to be off, will examine for outliers), <span class="math inline">\(v= 0.91\)</span> can be found (inc the 50x50 dataset yields <span class="math inline">\(v=0.45\)</span>). These two cases yield <span class="math inline">\(\gamma=0.44\)</span> and <span class="math inline">\(\gamma =0.22\)</span>. The fact that the 50x50 dataset seems off is frustrating…</p>
+<p>Refactor code to be a bit cleaner; unsure if the above power law method works fully; given it’s critical temp disagrees more significantly with standard values than the cumulant method, i’m hesitant to trust it.</p>
+</section>
+<section id="summary-of-issues-at-present" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-issues-at-present">summary of issues at present</h3>
+<p>Currently unsure where to go from here… There is some data issue with the 50x50 dataset, in order to evaluate finite size effects more data over a range of sizes is needed; however that is currently being generated. As such, i’m unsure how to examine my present data.</p>
+<p>The current deviations from standard values generally are:</p>
+<ul>
+<li><span class="math inline">\(\beta \approx 0.07\)</span> is less than standard value <span class="math inline">\(\beta = 0.125\)</span></li>
+<li><span class="math inline">\(\gamma \approx 0.45\)</span> is significantly less than standard value <span class="math inline">\(\gamma = 1.75\)</span></li>
+<li><span class="math inline">\(\alpha \approx 0.27\)</span> is significantly greater than stadard value of <span class="math inline">\(\alpha = 0\)</span></li>
+</ul>
+<p>The critical temperature values from the cumulant (<span class="math inline">\(T_{c}=2.229\)</span>) vs power law method (<span class="math inline">\(T_{c}=2.451\)</span>) disagree significantly, with the cumulant method closer to the standard value of <span class="math inline">\(T_{c}=2.269\)</span>. However the power law method is significantly limited by the small amount of data available to it, so this may improve in future.</p>
+<p>Presently the power law method provides a reasonable estimate of <span class="math inline">\(v=0.9\)</span> (standard value of 1) if the 50x50 dataset is excluded. However the power law method does not provide a good estimate of <span class="math inline">\(\gamma=0.44\)</span> if the 50x50 dataset is excluded. This is however somewhat consistent with the direct fit methods, which implies that whatever issue is causing these effects are present in both datasets.</p>
+<p>That alongside the fact that the direct fit method seems to fit relatively well (given R^2 values are generally <span class="math inline">\(R^{2}_{\beta}\approx 0.96\)</span>, <span class="math inline">\(R^{2}_{\gamma}\approx 0.69\)</span>, <span class="math inline">\(R^{2}_{\alpha}\approx 0.50\)</span>) suggests that this isn’t an issue with the analysis, but an issue with the data.</p>
+<p>Some possibilities may explain this:</p>
+<ul>
+<li>incorrect dynamics - some aspect of the simulation is incorrectly implemented</li>
+<li>incorrect observable computation - the observables (I.E, susceptibility) aren’t correctly computed</li>
+<li>some additional finite size effect hasn’t been accounted for</li>
+</ul>
+<p>Talked to Dr Turci for advice:</p>
+<ul>
+<li>potential optimisation; hardcode 2d, 3d mc sweep</li>
+<li>power fit as log instead of as is</li>
+<li>correlated data may be main issue; run data for longer esp near criticality (may be worth computing autocorrelation)
+<ul>
+<li>sample “sparse” for susceptibility</li>
+</ul></li>
+</ul>
+</section>
+<section id="plan-of-action-given-this-insight" class="level3">
+<h3 class="anchored" data-anchor-id="plan-of-action-given-this-insight">Plan of action given this insight:</h3>
+<ul>
+<li>switch exponent fit to log fit - this may address some of my exponent issues</li>
+<li>try sampling susceptibility on sparser data; see if that improves “noisiness” in data
+<ul>
+<li>potentially compute autocorrelation length on data to quantify results</li>
+</ul></li>
+<li>extend data over longer MC sweeps
+<ul>
+<li>this may require purpose built optimisation</li>
+</ul></li>
+</ul>
+</section>
+<section id="general-log-continued" class="level3">
+<h3 class="anchored" data-anchor-id="general-log-continued">general log continued:</h3>
+<p>attempted exponent fit w/log fit; improves results slightly for magnetisation</p>
+<p>Quickly attempted to sample every 20th data point for susceptibility to try and reduce correlations; this yields:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/susceptNoSkips.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.1 - Susceptibility no skips on 50x50 dataset</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/susceptSkips.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.2 - Susceptibility w/20 skips on 50x50 dataset</figcaption>
+</figure>
+</div>
+<p>Makes data noisier, worsening issue.</p>
+<p>Have implemented “add data” method to dataset. Will hopefully allow me to append data and improve results.</p>
+<p>Testing on the 20x20 dataset, adding 200 simulation steps results follow:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/magBeforeSim.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.3 - magnetisation before additional steps (20x20 dataset)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/susBeforeSim.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.4 - Susceptibility before additional steps (20x20 dataset)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/magAfterSim.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.5 - magnetisation after additional steps (20x20 dataset)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/susAfterSim.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.6 - Susceptibility after additional steps (20x20 dataset)</figcaption>
+</figure>
+</div>
+<p>Qualitatively this seems to improve the noise particularly in the susceptibility. Furthermore the magnetisation exponent <span class="math inline">\(\beta\)</span> has seemingly improved slightly from <span class="math inline">\(\beta=0.066\)</span> to <span class="math inline">\(\beta=0.079\)</span>. I suspect that this will be the main source of error for most of the exponent data; more data required.</p>
+<p>Have also implemented purpose built 2D, 3D and 4D mcMove method to main config; should be faster for those cases; seems faster thus far for 2D case.</p>
+</section>
+<section id="plan-from-this-point" class="level3">
+<h3 class="anchored" data-anchor-id="plan-from-this-point">Plan from this point:</h3>
+<ul>
+<li>extend main datasets over longer sweeps; see what the effect of this is</li>
+<li>may need to adjust cumulant computation - it doesn’t look like a logistic function anymore</li>
+<li>if this fixes the current issues (particularly noisy susceptibility); then can take main results</li>
+<li>else may need to look at autocorrelation times</li>
+</ul>
+</section>
+</section>
+<section id="lab-log-20022026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-20022026">lab log 20/02/2026</h2>
+<p>Initial examination of the extended datasets seems to indicate significant improvement in noise, however the direct fit methods for critical exponents continue to fail. As such, the task list may follow:</p>
+<ul>
+<li>examine refined data
+<ul>
+<li>compute cumulant, power law critical temperature on current dataset, compare to actual values</li>
+<li>compute fit based critical exponents for all datasets; record results</li>
+<li>compute power law <span class="math inline">\(\gamma\)</span> critical exponent to see if data refinement has improved results</li>
+</ul></li>
+<li>If power law critical temperature converges to standard value, it’s use may be accepted
+<ul>
+<li>if so, its value for critical exponents may be more reliable</li>
+<li>if its <span class="math inline">\(\gamma\)</span> estimate is closer to standard values, it may be worth implementing power law measures for other critical exponents</li>
+</ul></li>
+<li>if power law critical exponents are better, can accept result and consider main analytical work complete; following steps include:
+<ul>
+<li>generate “comparison results”:
+<ul>
+<li>generate 3D datasets to reproduce analysis</li>
+<li>go through mean field theory results for comparision</li>
+<li>potentially generate 1D results for comparision</li>
+</ul></li>
+<li>report planning and writing:
+<ul>
+<li>decide on “core narrative” of report; have some ideas (frame report as simple execution of critical exponent methods; compare results across dimensions/mean field theory and to standard results), but need more detail</li>
+<li>decide on plots and data needed for report; code methods for presentation</li>
+<li>write up report</li>
+<li>clean up lab book for submission</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="lab-log-21022026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-21022026">Lab log 21/02/2026</h2>
+<p>An issue being encountered is there is still SIGNIFICANT noise in the susceptibility values:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/susceptibilitiesOverBeta.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.7 - Susceptibilities over <span class="math inline">\(\beta\)</span></figcaption>
+</figure>
+</div>
+<p>This is a problem as it means the maximum susceptibility hasn’t been found reliably, making the power law method unreliable. In order to verify this idea (that the issue is the data and not the method); synthetic data was inputted to test the method. This seems to produce reasonable results, thus it is likely the issue is purely one of data.</p>
+<p>From this point there are a few potential things worth considering:</p>
+<ul>
+<li>compute autocorrelations; this may yield some insight into the noise</li>
+<li>Brute force compute more data - this should reduce the noise further (note, saving the configs for sim steps is probably unecessary and expensive atp; can remove to speed up computation)</li>
+<li>perhaps for max susceptibility; take average of 3 largest values instead of largest value; may help with criticality sensitive noise</li>
+<li>perform the power law method for critical exponent for <span class="math inline">\(\beta\)</span> - the susceptibility data is particularly noisy whilst the magnetisation data is not. Therefore attempting the method with <span class="math inline">\(\beta\)</span> may produce better results which may validate the method further, and provide insight on how best to approach the issue.</li>
+</ul>
+<p>Of these options, this last option seems reasonable to try first. Implemented the method, it seems noise is still a major factor; HOWEVER, at the cumulant derived critical temperature (<span class="math inline">\(T_{c}= 2.19\)</span>), it computes a value of <span class="math inline">\(\beta=0.011 \pm 0.02\)</span>; which whilst subject to A LOT of noise, is within uncertainty. This uncertainty is very large given the noise, however this suggests the power law methods will benefit from further refinement of the data.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/rmsMag.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 5.8 - RMS magnetisations, note the amount of uncertainty around the critical point (30x30 dataset)</figcaption>
+</figure>
+</div>
+<p>Have set the main datasets to generate 500 more datapoints. Hopefully this will (albeit slowly) converge the data.</p>
+<p>If that significantly improves the issues, this lab will likely be able to accept the power law derived exponents and critical temperatures.</p>
+<p><img src="figures/sus20before.png" class="img-fluid quarto-figure quarto-figure-left" alt="Fig 5.9 - susceptibility before 500 additional data points (20x20)"> <img src="figures/sus20after.png" class="img-fluid quarto-figure quarto-figure-left" alt="Fig 5.10 - susceptibility after 500 additional data points (20x20)"></p>
+<p>Off of early results, this does seem to qualitatively smooth out the results and reduce the maximum susceptibility. Also note how there appears to be an apparent peak at <span class="math inline">\(\chi\approx30\)</span> - this may suggest that the actual peak <span class="math inline">\(\chi\approx51\)</span> is an anomaly due to noise. Unsure how to systematically acertain this however.</p>
+<p>With more data and taking a mean around the critical point instead of directly at the critical point; (and setting <span class="math inline">\(T_{c}=2.269\)</span>) am starting to get reasonable values for some of the critical exponents by power law method (<span class="math inline">\(\beta= 0.13 \pm 0.06\)</span>, and <span class="math inline">\(\gamma=1.7 \pm 1.2\)</span>). There is evidently still significant noise, however it is clear that this brute force approach will yield correct results.</p>
+</section>
+<section id="lab-log-22022026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-22022026">Lab log 22/02/2026</h2>
+<p>Manually filtered out apparent outliers from susceptibility to see if that improves results to get an idea of how badly noise is affecting data Heat capacity peaks are a lot clearer and less noisy than susceptibility.</p>
+<p>General experimentation; <span class="math inline">\(\beta\)</span> power law fit seemingly working alright; <span class="math inline">\(\gamma\)</span> is temperamental</p>
+<section id="to-do-list" class="level3">
+<h3 class="anchored" data-anchor-id="to-do-list">to do list:</h3>
+<ul>
+<li>fix exponents
+<ul>
+<li>other susceptibility peak finding methods?</li>
+</ul></li>
+<li>fix cumulant (need to curve fit)</li>
+<li>generate nice plots</li>
+<li>start drafting report (note acknowledging noise due to limited compute may be interesting narrative twist to salvage this)</li>
+<li>generate 3D data</li>
+</ul>
+<p>have revised cumulant method (have it power law fit the intersection temperatures); is producing <span class="math inline">\(T_{c} = 2.22 \pm 0.08\)</span> which agrees with standard values.</p>
+<p>The exponent values are largely reasonable when using <span class="math inline">\(T_{c}=2.269\)</span> however are without uncertainty otherwise… May need to work a bit more on the critical temp methods…</p>
+</section>
+</section>
+<section id="lab-log-23022026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-23022026">Lab log 23/02/2026</h2>
+<p>have implemented a more general “find maximum” method in dataset; is meant to be a wrapper for different peak finding methods. Currently has a direct (largest value in observable array) and an “interpolate” method. The interpolate method finds the direct maximum, then draws 2 straight lines from the 4 closest points (left hand and right hand side of point); then finds their intersection. THe idea of this is to try and incorporate more information into the maximum estimate. Particularly for susceptibility, this method is expected to reduce noise due to being near criticality and incorporate information from more points. Also included a center of mass method which computes <span class="math inline">\(T_{max} = \frac{1}{\sum O} \sum O\cdot T\)</span> for observable O; should produce the peak if the data is symetric about the critical temperature.</p>
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-isingScaling" class="csl-entry" role="listitem">
+Kadanoff, Leo P. 1966. <span>“Scaling Laws for Ising Models Near <span class="math inline">\({T}_{c}\)</span>.”</span> <em>Physics Physique Fizika</em> 2 (June): 263–72. <a href="https://doi.org/10.1103/PhysicsPhysiqueFizika.2.263">https://doi.org/10.1103/PhysicsPhysiqueFizika.2.263</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

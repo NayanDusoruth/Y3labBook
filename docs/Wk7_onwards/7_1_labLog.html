@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Nayan Dusoruth">
 
-<title>Y3 labs labbook – Y3 Labbook</title>
+<title>lablog – Y3 Labbook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bcb4737e8fbcf1e9dfc00b59f8305558.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bcb4737e8fbcf1e9dfc00b59f8305558.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,8 +69,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -83,9 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Y3 Labbook
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Wk7_onwards/7_1_labLog.html">Post lab work</a></li><li class="breadcrumb-item"><a href="../Wk7_onwards/7_1_labLog.html">Wk 7-8 Lab log</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -100,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Y3 Labbook</a> 
+      <a href="../">Y3 Labbook</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -121,37 +147,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk0/0_0_Wk0_preface.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk0/0_0_Wk0_preface.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 0 Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk0/0_1_test_page.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk0/0_1_test_page.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 0.1 Test page</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk0/0_2_Bibliography.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk0/0_2_Bibliography.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 0.2 Bibliography</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk0/0_3_Module_and_assignment_specifics.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk0/0_3_Module_and_assignment_specifics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 0.3 Module and assignment specifics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk0/0_4_General_pre_prep_log.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk0/0_4_General_pre_prep_log.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 0.4 General pre-prep log</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk0/0_5_background_theory_and_concepts.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk0/0_5_background_theory_and_concepts.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 0.5 Background theory and concepts</span></a>
   </div>
 </li>
@@ -168,49 +194,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk1_22_01_2026/1_1_labLog.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk1_22_01_2026/1_1_labLog.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 1 Lab log</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk2_29_01_2026/2_1_labLog.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk2_29_01_2026/2_1_labLog.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 2 Lab log</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk2_29_01_2026/2_2_additionalReading.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk2_29_01_2026/2_2_additionalReading.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 2 Additional Reading</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk3_05_02_2026/3_1_labLog.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk3_05_02_2026/3_1_labLog.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 3 Lab log</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk3_05_02_2026/3_2_additionalReading.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk3_05_02_2026/3_2_additionalReading.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 3 Additional Reading</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk4_12_02_2026/4_1_labLog.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk4_12_02_2026/4_1_labLog.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 4 Lab log</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk5_19_02_2026/5_1_labLog.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk5_19_02_2026/5_1_labLog.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 5 Lab log</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk6_26_02_2026/6_1_labLog.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk6_26_02_2026/6_1_labLog.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Wk 6 Lab log</span></a>
   </div>
 </li>
@@ -227,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Wk7_onwards/7_1_labLog.html" class="sidebar-item-text sidebar-link">
+  <a href="../Wk7_onwards/7_1_labLog.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Wk 7-8 Lab log</span></a>
   </div>
 </li>
@@ -238,46 +264,192 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#post-wk6-work" id="toc-post-wk6-work" class="nav-link active" data-scroll-target="#post-wk6-work">Post Wk6 work</a>
+  <ul class="collapse">
+  <li><a href="#post-wk6-summary" id="toc-post-wk6-summary" class="nav-link" data-scroll-target="#post-wk6-summary">Post Wk6 summary</a></li>
+  <li><a href="#to-do-list" id="toc-to-do-list" class="nav-link" data-scroll-target="#to-do-list">To do list:</a></li>
+  <li><a href="#lab-log-01032026" id="toc-lab-log-01032026" class="nav-link" data-scroll-target="#lab-log-01032026">Lab log 01/03/2026</a></li>
+  <li><a href="#lab-log-02032026" id="toc-lab-log-02032026" class="nav-link" data-scroll-target="#lab-log-02032026">Lab log 02/03/2026</a></li>
+  <li><a href="#lab-log-03032026" id="toc-lab-log-03032026" class="nav-link" data-scroll-target="#lab-log-03032026">Lab log 03/03/2026</a></li>
+  <li><a href="#lab-log-05032026" id="toc-lab-log-05032026" class="nav-link" data-scroll-target="#lab-log-05032026">Lab log 05/03/2026</a></li>
+  <li><a href="#lab-log-06032026" id="toc-lab-log-06032026" class="nav-link" data-scroll-target="#lab-log-06032026">Lab log 06/03/2026</a></li>
+  <li><a href="#lab-log-07032026" id="toc-lab-log-07032026" class="nav-link" data-scroll-target="#lab-log-07032026">Lab log 07/03/2026</a></li>
+  <li><a href="#lab-log-08032026" id="toc-lab-log-08032026" class="nav-link" data-scroll-target="#lab-log-08032026">Lab log 08/03/2026</a></li>
+  <li><a href="#lab-log-09032026" id="toc-lab-log-09032026" class="nav-link" data-scroll-target="#lab-log-09032026">Lab log 09/03/2026</a></li>
+  <li><a href="#lab-log-10032026" id="toc-lab-log-10032026" class="nav-link" data-scroll-target="#lab-log-10032026">Lab log 10/03/2026</a></li>
+  <li><a href="#lab-log-12032026" id="toc-lab-log-12032026" class="nav-link" data-scroll-target="#lab-log-12032026">Lab log 12/03/2026</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Y3 labs labbook</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Wk7_onwards/7_1_labLog.html">Post lab work</a></li><li class="breadcrumb-item"><a href="../Wk7_onwards/7_1_labLog.html">Wk 7-8 Lab log</a></li></ol></nav></header>
 
 
 
-<div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Nayan Dusoruth </p>
-          </div>
-  </div>
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>This is a digital lab book for the Y3 lab module produced using quarto. It contains three sections:</p>
+<section id="post-wk6-work" class="level1">
+<h1>Post Wk6 work</h1>
+<section id="post-wk6-summary" class="level2">
+<h2 class="anchored" data-anchor-id="post-wk6-summary">Post Wk6 summary</h2>
+<p>Over the course of this week the data was refined further over longer simulation times. The exact analytical specifics (I.E, time block, observable method “radius” peak finding radius…) were experimented with and refined to a “set process”. Lastly a finite size correction was attempted; this seemed to improve results, however the theoretical validity of this correction is unclear, so it was mostly used to assign error to finite size effects.</p>
+<p>Finally the lab report was completed, proofread (both by myself and some friends who proofread the completed draft report; and provided general feedback), and finished. Likewise the lab book was completed and cleaned up.</p>
+</section>
+<section id="to-do-list" class="level2">
+<h2 class="anchored" data-anchor-id="to-do-list">To do list:</h2>
 <ul>
-<li>Pre lab work: General preparation in advance of main labs</li>
-<li>Main lab log: A log taken over the course of the main 6Wks in labs</li>
-<li>Post lab work: A log taken after the main 6Wks in labs</li>
+<li>final analytical/code tasks
+<ul>
+<li>settle on standard analytical method (blocksize, data, critical temp method, assumptions…) to generate “standard results”
+<ul>
+<li>don’t forget to incude R^2 values for fits</li>
+</ul></li>
+<li>use standard analytical method on 3D data to generate 3D results
+<ul>
+<li>may need to extend 3D datasets further about critical temps</li>
+</ul></li>
+<li>rework plotting methods to make prettier plots of standard results
+<ul>
+<li>standardise size to column width [x]</li>
+<li>standardise font size [x]</li>
+<li>standardise error bars and plot markers [x]</li>
+<li>consider log plots for some of the fits</li>
+<li>consider sub gridlines</li>
+<li>figure out units</li>
+</ul></li>
+<li>potentially export data as CSV; currently pickled objects, however observable data is in datafame; saving data as dataframes for archiving may be better (for after lab being done; i don’t want to delete the data entirely, but would like to reduce it’s storage requirements) - alternatively strip raw configs from data; that seems to be main source of bloat</li>
+</ul></li>
+<li>report writing:
+<ul>
+<li>add results and plots to report<br>
+</li>
+<li>add more substance to report (discussion, conclusion, abstract, methods)
+<ul>
+<li>also draw illustrations as necessary (do after however)</li>
+</ul></li>
+<li>get and implement necessary citations into report</li>
+<li>proofread report as necessary</li>
+<li>narrative idea; treat 2D data as “pathfinding” for 3D exploration - mostly explored 2D data to setup “analytical machinery” which will be applied to 3D; this narrative follows the research process and may help account for extreme finite size effects in 3D data</li>
+</ul></li>
+<li>lab book:
+<ul>
+<li>Reorganise as necessary
+<ul>
+<li>tidy up header/section formatting</li>
+<li>potentially tidy up log, theory… organisation; its currently a bit messy (potentially into their own pages)</li>
+</ul></li>
+<li>content tidying:
+<ul>
+<li>tidy up log formatting and clarify context as needed</li>
+<li>check over equations; make sure they’re all correct</li>
+<li>add/clarify relevant figure captions</li>
+<li>tabulate test cases… may be clearer</li>
+</ul></li>
+<li>summaries
+<ul>
+<li>fill out weekly summaries; should be a brief sumamry and conclusion of what was acheived/learned that week</li>
+</ul></li>
+<li>render as pdf</li>
+</ul></li>
 </ul>
-<p>A web version of this lab book can be found at: https://nayandusoruth.github.io/Y3labBook/Wk7_onwards/7_1_labLog.html</p>
+</section>
+<section id="lab-log-01032026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-01032026">Lab log 01/03/2026</h2>
+<p>Have also decided to recover scraps of 100x100 data. Its not a full dataset, but should have sufficent detail to provide another datapoint to the 2D data. Currently refining the data by running more MC steps about the critical point.</p>
+<p>Am still waiting on 3D data to generate.</p>
+</section>
+<section id="lab-log-02032026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-02032026">Lab log 02/03/2026</h2>
+<p>Have implemented a “wipeData” method - currently the config objects have a lot of saved states - this takes up a lot of storage space. Implemented this method to wipe all but that last state from the memory to save storage space and speed up load times.</p>
+<p>This has reduced stored data significantly and speeds up load times. Not necessary, but convenient.</p>
+<p>Examining scrapped/refined 100x100 data there is still significant noise:</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/100x100Sus.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 7.1 - Suspectibility of 100x100 dataset with 2500Mc steps</figcaption>
+</figure>
+</div>
+<p>Including it in the primary results significantly skews the final results. Will refine the dataset further in the background, but if it can’t be handled will omit it.</p>
+<p>May need to combine the susceptibility and power law fit into one graph. Setting the 2D and 3D plots side by side may make the plots too small to see, so trying to compress more information into a single plot may be advisable.</p>
+</section>
+<section id="lab-log-03032026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-03032026">Lab log 03/03/2026</h2>
+<p>More plot tweaking. Combined all susceptibilities and power law critical temp fit into one plot (subplotted). This works quite well, so instead of subplotting 2D, and 3D data it may be better to subplot combine the existing plots together.</p>
+<p>For instance, the three fits for <span class="math inline">\(\beta, \gamma, \alpha\)</span> could be combined into one subplot which share an x axis? This may help compact plot information. Potentially only combine the <span class="math inline">\(\beta, \gamma\)</span> ones - heat capacity to be shown seperatedly; the fit for heat capacity is poor so doesn’t reveal a lot of information. Worth showing an exemplar to justify not showing it again.</p>
+</section>
+<section id="lab-log-05032026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-05032026">Lab log 05/03/2026</h2>
+<p>Fiddling with analytical specifics (mostly the time block and RMS mag mean radius). Refining the time block improves the <span class="math inline">\(T_{c}\)</span> estimate; which has a knock on effect on the <span class="math inline">\(\beta\)</span> estimate. have also streamlined the data generation-&gt; latex report doc pipeline; it now autofills the final results into the report. it writes the results as latex commands of form /newcommand{/value}{/value /pm dev} to a seperate .tex doc which is imported by the report file. That way results can be quoted as /value, and it will autoupdate every time the main analytical code is run.</p>
+</section>
+<section id="lab-log-06032026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-06032026">Lab log 06/03/2026</h2>
+<p>note to self; beta parameter is very sensitive to critical temperature were its evaluated; so small deviations in T_c have large effects in beta.</p>
+<p>Writing note to self: need to do a proofreading sweep checking notational consistency; particularly the difference between <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\beta_{m}\)</span></p>
+</section>
+<section id="lab-log-07032026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-07032026">Lab log 07/03/2026</h2>
+<p>Note to self; adjusting the apparent critical temperature by the ratio of <span class="math inline">\(\frac{n_{spins}}{n_{connections}}\)</span> where <span class="math inline">\(n_{connections}\)</span> are all the connections between cells as:</p>
+<p><span class="math inline">\(n_{connections d=2}=(l-2)^{2}\cdot4+(l-2)\cdot4\cdot3+4\cdot2\)</span> Eq. 7.1</p>
+<p><span class="math inline">\(n_{connections d=3}=(l-2)^{3}\cdot6+6\cdot(l-2)^{2}\cdot5+8(l-2)\cdot2+8\cdot3\)</span> Eq. 7.2</p>
+<p>So scaling the apparent critical temperatures as</p>
+<p><span class="math inline">\(T_{adj} = T_{app} \cdot \frac{n_{connections}}{n_{spins}}\cdot z\)</span> Eq. 7.3</p>
+<p>(z is number of neighbours per cell) yields smoother/better fitting power law critical temperatures fits and slightly improves their values.</p>
+<p>The ratio <span class="math inline">\(\frac{n_{spins}}{n_{connections}}\)</span> for an infinite sized ising model approaches <span class="math inline">\(\frac{1}{z}\)</span>. Given that the mean field theory critical temperature is <span class="math inline">\(T_{c}=\frac{jz}{k_{b}}\)</span>, it could be argued that performing the adjustment in Eq.7.3 corrects for finite size effects, however the power law fit supposedly already does that.</p>
+<p>I’m unsure wether or not this should be included in the report, or how. Eq. 7.1 and 7.2 were quickly derived from first principles (analysing the number if spins that are “within” the primary volume with full adjacencies, how many spins are on various edges of the cubic area/volume), so i’m unsure how/where to cite them. Furthermore given that this isn’t part of a standard method i’m hesitant to use them in the “primary analysis/results”.</p>
+<p>I think i can justify it somewhat within an exploration of the extreme finite size effects in 3D; this improves the <span class="math inline">\(T_{c}\)</span> results slightly, so this sort of analysis could be used to attribute the issues with the 3D data to extreme finite size effects…</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/beforeAdjust.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 7.2 - 3D data critical temperature fit w/out adjustment (<span class="math inline">\(T_{c}=3.063 \pm 0.002\)</span>, <span class="math inline">\(R^{2}=0.4873\)</span>)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/afterAdjust.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 7.3 - 3D data critical temperature fit w/ adjustment (<span class="math inline">\(T_{c}=3.116 \pm 0.001\)</span>, <span class="math inline">\(R^{2}=0.9294\)</span>)</figcaption>
+</figure>
+</div>
+<p>Have included these points in report in order to substantiate finite size effects (and have been able to produce better results than above)</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="figures/3DcritTempPowerLawFitAdjusted.png" class="img-fluid figure-img"></p>
+<figcaption>Fig 7.4 - Improved adjusted data w/<span class="math inline">\(T_{c}=3/78\pm0.01\)</span> w/<span class="math inline">\(R^{2}=0.9796\)</span> exc <span class="math inline">\(L=20\)</span> datapoint due to it being an evident outlier</figcaption>
+</figure>
+</div>
+<p>This seems to indicate that finite size effects significantly account for the underestimated 3D critical temperature. However the validity of this correction is unclear. Furthermore even if it is valid, how to apply it to the raw observables to correct the critical exponents is also unclear.</p>
+<p>As such its currently mostly a suggestive piece of evidence towards the inaccuracies in the 3D results being due to extreme finite size effects.</p>
+</section>
+<section id="lab-log-08032026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-08032026">Lab log 08/03/2026</h2>
+<p>Note to self; may be worth showing example model configurations below, above and at critical temperature in the report. May help visualise/conceptualise what the phase transitions physically means/looks like.</p>
+</section>
+<section id="lab-log-09032026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-09032026">Lab log 09/03/2026</h2>
+<p>Have a “submission ready” report .draft done</p>
+</section>
+<section id="lab-log-10032026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-10032026">Lab log 10/03/2026</h2>
+<p>Have asked some friends to proofread my complete draft; have spent some time cleaning up lab book. Task list from here on out:</p>
+<ul>
+<li>final proofreads of report</li>
+<li>proofread lab book</li>
+<li>Transfer the full lab book bibliography from the spreadsheet to the quarto notebook.</li>
+<li>republish quarto notebook in “final” state</li>
+<li>render as complete pdf for submission</li>
+</ul>
+</section>
+<section id="lab-log-12032026" class="level2">
+<h2 class="anchored" data-anchor-id="lab-log-12032026">Lab log 12/03/2026</h2>
+<p>Have cleaned up lab book, and done a last proofread of report.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
