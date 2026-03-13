@@ -1,4 +1,8 @@
 # Post Wk6 work
+## Post Wk6 summary
+Over the course of this week the data was refined further over longer simulation times. The exact analytical specifics (I.E, time block, observable method "radius" peak finding radius...) were experimented with and refined to a "set process". Lastly a finite size correction was attempted; this seemed to improve results, however the theoretical validity of this correction is unclear, so it was mostly used to assign error to finite size effects.
+
+Finally the lab report was completed, proofread (both by myself and some friends who proofread the completed draft report; and provided general feedback), and finished. Likewise the lab book was completed and cleaned up.
 
 ## To do list:
 
@@ -125,3 +129,6 @@ Task list from here on out:
 * Transfer the full lab book bibliography from the spreadsheet to the quarto notebook.
 * republish quarto notebook in "final" state
 * render as complete pdf for submission
+
+## Lab log 12/03/2026
+Have cleaned up lab book, and done a last proofread of report.

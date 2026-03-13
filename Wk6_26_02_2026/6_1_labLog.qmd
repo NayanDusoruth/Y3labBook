@@ -1,6 +1,7 @@
 # Wk 6 Lab log
-##Wk 6 summary
+## Wk 6 summary
 This week finally fixed the issues with susceptibility. Therefore was able to refine analysis to a more final state. 
+
 ## general to do list
 At present time most of the methods generally work, but need significant amount of equilibration time to work. 3D data is currently being generated, and am fiddling a bit with the 2D data to produce the cleanest results.
 

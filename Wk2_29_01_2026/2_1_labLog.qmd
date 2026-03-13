@@ -136,10 +136,13 @@ Which shows a general increase in absolute magnetisation over $\beta$ (contrary 
 
 The final configuration states for this data was generated for visual inspection; some examples include:
 
-![Fig 2.3 - Config 0](figures/magTestConfig0){fig-align="left"}
-![Fig 2.4 - Config 15](figures/magTestConfig15){fig-align="left"}
-![Fig 2.5 - Config 16](figures/magTestConfig16){fig-align="left"}
-![Fig 2.6 - Config 19](figures/magTestConfig19){fig-align="left"}
+![Fig 2.3 - Config 0](figures/magTestConfig0.png){fig-align="left"}
+
+![Fig 2.4 - Config 15](figures/magTestConfig15.png){fig-align="left"}
+
+![Fig 2.5 - Config 16](figures/magTestConfig16.png){fig-align="left"}
+
+![Fig 2.6 - Config 19](figures/magTestConfig19.png){fig-align="left"}
 
 
 On initial inspection the low and high $\beta$ configs appear reasonable; fig.2.3 shows an orderly config for low $\beta$ whilst fig 2.6 shows a relatively disorded config. However the intermediate examples show a confusing switch in behaviour from relatively disorganised to organised (these correspond to one of the drops in fig 2.2).
@@ -147,7 +150,7 @@ On initial inspection the low and high $\beta$ configs appear reasonable; fig.2.
 A few things become apparent comparing figs 2.3-2.6 to fig 2.1:
 
 * magnetisation computation is going wrong somehwhere; as highly ordered states (I.E fig 2.3) are reading low magnetisation whilst disorded states (I.E fig 2.5) are reading high magnetisation. This contradicts an understanding of the underlying theory that ordered ising models should be more magnetised
-* the source of the discontinuous drops are unclear - there is a major drop at $\beta\approx 2.4$ alongside several smaller drops; if those smaller drops didn't exist, that large drop could be attributed to a phase transition
+* the source of the discontinuous drops are unclear - there is a major drop at $\beta \approx 2.4$ alongside several smaller drops; if those smaller drops didn't exist, that large drop could be attributed to a phase transition
 
 The random drops may be due to noise effects (the magnetistion is averaged over the relatively few 100 simulation steps); however the fact that the magnetisation grows over beta isn't clear.
 

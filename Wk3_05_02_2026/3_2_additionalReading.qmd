@@ -16,7 +16,7 @@ Into observable average as:
 $<A> = \frac{1}{Z}\sum{e^{-H\beta} \cdot A_{i}}$  \ \ \ \ \ \ \ \ \ \ \ \  Eq. 3.1
 
 my be useful to better compute observables in main config
-Also, may be useful to normalise observables to number of spins (\frac{A}{N})
+Also, may be useful to normalise observables to number of spins ($\frac{A}{N}$)
 
 ## Scaling laws reading 
 [@ComplexityAndCriticality] has a section on scaling laws (p188 onwards); the key insight worth taking away is normalising the temperature.
